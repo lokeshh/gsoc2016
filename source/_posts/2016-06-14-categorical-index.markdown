@@ -62,12 +62,6 @@ df.vector[0..5]
           ...        ...        ...        ...        ...        ...        ...
 ```
 
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
-
 The data is about countries. The region column describes the region that country belongs to. A region can have more than one country.
 
 This a ideal place where we can use Categorical Index if we want to study about different regions.
