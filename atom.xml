@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-06-22T20:53:05+00:00</updated>
+  <updated>2016-06-22T20:53:36+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -29,9 +29,13 @@
 </ul>
 
 
-<p>With introduction of categorical data, Daru has now two benefits
-1. Storage of categorical data is very effective.
-2. Tasks related to categorical data have become a lot easier</p>
+<p>With introduction of categorical data, Daru has now two benefits-</p>
+
+<ol>
+<li>Storage of categorical data is very effective.</li>
+<li>Tasks related to categorical data have become a lot easier</li>
+</ol>
+
 
 <p>The reason for 1 is that it in ordinary vector the data is stored as an array.
 It doesn&rsquo;t consider the fact that most of the entries are same. Look at (Internal Structure) for more information.</p>
