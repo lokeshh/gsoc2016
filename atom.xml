@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-06-22T21:06:24+00:00</updated>
+  <updated>2016-06-22T21:09:51+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -142,7 +142,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The benefit as you can see is that we were able to order the categories and based on we used <code>lt</code>.</p>
+<p>The benefit is that we used <code>lt</code> based on the order we set.</p>
 
 <p>By defining the custom order of categories and setting <code>ordered</code> to <code>true</code>, one can sort the categories, find the min, max, etc. For example</p>
 
