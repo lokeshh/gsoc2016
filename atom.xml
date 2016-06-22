@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-06-22T20:52:19+00:00</updated>
+  <updated>2016-06-22T20:53:05+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -20,10 +20,14 @@
     <id>http://lokeshh.github.io/blog/2016/06/21/categorical-data</id>
     <content type="html"><![CDATA[<p>Daru has now the capability to store and process categorical data.</p>
 
-<p>Daru has now three types of vector
-- :object
-- :numeric
-- :category (new)</p>
+<p>Daru has now three types of vector</p>
+
+<ul>
+<li>:object</li>
+<li>:numeric</li>
+<li>:category (new)</li>
+</ul>
+
 
 <p>With introduction of categorical data, Daru has now two benefits
 1. Storage of categorical data is very effective.
