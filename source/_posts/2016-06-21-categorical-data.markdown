@@ -20,12 +20,12 @@ With introduction of categorical data, Daru has now two benefits-
 1. Storage of categorical data is very effective.
 2. Tasks related to categorical data have become a lot easier
 
-The reason for 1 is that it in ordinary vector the data is stored as an array.
-It doesn't consider the fact that most of the entries are same. Look at (Internal Structure) for more information.
+The reason for `1` is that in ordinary vector the data is stored as an array.
+It doesn't consider the fact that most of the entries are same.
 
 Lets discuss the various tasks which can now be done easily related to categorical vector.
 
-(The purpose of this blog is to give an overview of what tasks you can accomplish with categorical data. To learn about what each method I highly looking at [this notebook](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Categorical%20Data.ipynb))
+(The purpose of this blog is to give an overview of what tasks can be accomplished with categorical data. To learn about what each method do and how to use it please look at [this notebook](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Categorical%20Data.ipynb))
 
 As soon as one declares a categorical variable, one can look at frequency count of each category to get judgement of the data:
 
@@ -48,16 +48,17 @@ One can look over the summary of the data to get to know common numbers about ca
      min_freq            5
  min_category            I
 ```
-Its possible to convert a numerical variable into categorical variable. For example you have measures of height and you want to categorize them:
+Its possible to convert a numerical variable into categorical variable. For example `heights` store measures of heights and we want to categorize them into categories `low`, `medium` and `high`:
 ```ruby
 > heights = Daru::Vector.new [30, 35, 32, 50, 42, 51]
 > heights.cut [30, 40, 50, 60]
-> height_cat = heights.cut [30, 40, 50, 60]                            
+> height_cat = heights.cut [30, 40, 50, 60]
+> height_cat.rename_categories '30-39' => 'low', '40-49' => 'medium', '50-59' => 'high'
 > height_cat.frequencies
 => #<Daru::Vector(3)>
- 30-39     3
- 40-49     1
- 50-59     2
+    low      3
+ medium      1
+   high      2
 ```
 Given a dataframe its possible to extract rows based on the categories. It uses the same Area-like query syntax like an ordinary vector. For example
 ```ruby
@@ -79,13 +80,13 @@ Given a dataframe its possible to extract rows based on the categories. It uses 
      7     B     7     h
 ```
 
-The benefit as you can see is that were able to order the categories and based on that queried the dataframe.
+The benefit as you can see is that we were able to order the categories and based on we used `lt`.
 
 By defining the custom order of categories and setting `ordered` to `true`, one can sort the categories, find the min, max, etc. For example
 
 ```ruby
 # Assuming df defined as above
-# Lets rename the categories to show you that lexical order is not followed while sorting with categorical data
+# Lets rename the categories to show that lexical order is not followed while sorting with categorical data
 > df[:grade].rename_categories 'A' => 'Good', 'B' => 'Average', 'C' => 'Bad'
 > df
 => #<Daru::DataFrame(8x3)>
@@ -116,6 +117,7 @@ By defining the custom order of categories and setting `ordered` to `true`, one 
 Its similar to the internal structure of categorical index.
 
 To efficiently store the duplicates of catgories and make retrieval possible in constant time, categorical data in Daru uses two data structres-
+
 - Hash-table: To map each category to positional values. It is represented as `@cat_hash`.
 - Array: To map each position to a integer which represent a category.
 
