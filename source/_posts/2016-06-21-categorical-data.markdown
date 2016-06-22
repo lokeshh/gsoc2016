@@ -10,11 +10,13 @@ published: true
 Daru has now the capability to store and process categorical data.
 
 Daru has now three types of vector
+
 - :object
 - :numeric
 - :category (new)
 
-With introduction of categorical data, Daru has now two benefits
+With introduction of categorical data, Daru has now two benefits-
+
 1. Storage of categorical data is very effective.
 2. Tasks related to categorical data have become a lot easier
 
