@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>GSoC 2016 Progress</title>
+  <title>Categorical Data [Week 3-4] - GSoC 2016 Progress</title>
   <meta name="author" content="Lokesh Sharma">
 
   
@@ -21,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://lokeshh.github.io/">
+  <link rel="canonical" href="http://lokeshh.github.io/blog/2016/06/21/categorical-data/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="GSoC 2016 Progress" type="application/atom+xml">
@@ -66,15 +66,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/06/21/categorical-data/">Categorical Data [Week 3-4]</a></h1>
+      <h1 class="entry-title">Categorical Data [Week 3-4]</h1>
     
     
       <p class="meta">
@@ -90,7 +87,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Daru has now the capability to store and process categorical data.</p>
+<div class="entry-content"><p>Daru has now the capability to store and process categorical data.</p>
 
 <p>Daru has now three types of vector
 - :object
@@ -295,219 +292,46 @@ It doesn&rsquo;t consider the fact that most of the entries are same. Look at (I
 
 <p>And the reason to store integers in the array instead of name of categories itself is to avoid unnecessary usage of space.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lokesh Sharma</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-06-21T20:19:08+00:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>8:19 pm</span></time>
+      
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2016/06/14/categorical-index/">Categorical Index [Week 1-2]</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-06-14T07:54:47+00:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:54 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Daru just got a new capability => Categorical Index.</p>
-
-<p>Now one can organize vector and dataframe using index that is categorical.</p>
-
-<p>Daru has got now 4 types of indexes to index data:</p>
-
-<ul>
-<li>Daru::Index</li>
-<li>Daru::MultiIndex</li>
-<li>Daru::DateTimeIndex</li>
-<li>Daru::CategoricalIndex (new)</li>
-</ul>
-
-
-<p><code>Daru::Index</code> is for usual index where every value is unique.</p>
-
-<p><code>Daru::MultiIndex</code> is for indexing with more than one level.</p>
-
-<p><code>Daru::DateTimeIndex</code> is to have indexing with dates. Its powerful means to analyze time series data.</p>
-
-<p>The new <code>Daru::CategoricalIndex</code> is to have data indexed sparsely populated index with each unique index value as category.</p>
-
-<p>Please visit <a href="http://nbviewer.jupyter.org/github/lokeshh/sciruby-notebooks/blob/cat_index/Data%20Analysis/Indexing%20in%20Vector.ipynb">this link</a> before to get a basic understanding of how indexing works in Daru::Vector and <a href="nbviewer.jupyter.org/url/github.com/lokeshh/sciruby-notebooks/raw/cat_index/Data%20Analysis/Indexing%20in%20DataFrame.ipynb">this link</a> for Daru::DataFrame.</p>
-
-<h2>Example</h2>
-
-<p>Let&rsquo;s see an example.</p>
-
-<p>(Alternatively you can also see this example in iRuby notebook <a href="http://nbviewer.jupyter.org/github/lokeshh/sciruby-notebooks/blob/cat_index/Data%20Analysis/%5BExample%5D%20Categorical%20Index.ipynb">here</a>)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;daru&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;open-uri&#39;</span>
-</span><span class='line'><span class="n">content</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/WHO.csv&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">df</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">DataFrame</span><span class="o">.</span><span class="n">from_csv</span> <span class="n">content</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">df</span><span class="o">.</span><span class="n">vector</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">5</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(194x6)&gt;</span>
-</span><span class='line'>                 <span class="no">Country</span>     <span class="no">Region</span> <span class="no">Population</span>    <span class="no">Under15</span>     <span class="no">Over60</span> <span class="no">FertilityR</span>
-</span><span class='line'>            <span class="mi">0</span> <span class="no">Afghanista</span> <span class="no">Eastern</span> <span class="no">Me</span>      <span class="mi">29825</span>      <span class="mi">47</span><span class="o">.</span><span class="mi">42</span>       <span class="mi">3</span><span class="o">.</span><span class="mi">82</span>        <span class="mi">5</span><span class="o">.</span><span class="mi">4</span>
-</span><span class='line'>            <span class="mi">1</span>    <span class="no">Albania</span>     <span class="no">Europe</span>       <span class="mi">3162</span>      <span class="mi">21</span><span class="o">.</span><span class="mi">33</span>      <span class="mi">14</span><span class="o">.</span><span class="mi">93</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">75</span>
-</span><span class='line'>            <span class="mi">2</span>    <span class="no">Algeria</span>     <span class="no">Africa</span>      <span class="mi">38482</span>      <span class="mi">27</span><span class="o">.</span><span class="mi">42</span>       <span class="mi">7</span><span class="o">.</span><span class="mi">17</span>       <span class="mi">2</span><span class="o">.</span><span class="mi">83</span>
-</span><span class='line'>            <span class="mi">3</span>    <span class="no">Andorra</span>     <span class="no">Europe</span>         <span class="mi">78</span>       <span class="mi">15</span><span class="o">.</span><span class="mi">2</span>      <span class="mi">22</span><span class="o">.</span><span class="mi">86</span>        <span class="kp">nil</span>
-</span><span class='line'>            <span class="mi">4</span>     <span class="no">Angola</span>     <span class="no">Africa</span>      <span class="mi">20821</span>      <span class="mi">47</span><span class="o">.</span><span class="mi">58</span>       <span class="mi">3</span><span class="o">.</span><span class="mi">84</span>        <span class="mi">6</span><span class="o">.</span><span class="mi">1</span>
-</span><span class='line'>            <span class="mi">5</span> <span class="no">Antigua</span> <span class="n">an</span>   <span class="no">Americas</span>         <span class="mi">89</span>      <span class="mi">25</span><span class="o">.</span><span class="mi">96</span>      <span class="mi">12</span><span class="o">.</span><span class="mi">35</span>       <span class="mi">2</span><span class="o">.</span><span class="mi">12</span>
-</span><span class='line'>            <span class="mi">6</span>  <span class="no">Argentina</span>   <span class="no">Americas</span>      <span class="mi">41087</span>      <span class="mi">24</span><span class="o">.</span><span class="mi">42</span>      <span class="mi">14</span><span class="o">.</span><span class="mi">97</span>        <span class="mi">2</span><span class="o">.</span><span class="mi">2</span>
-</span><span class='line'>            <span class="mi">7</span>    <span class="no">Armenia</span>     <span class="no">Europe</span>       <span class="mi">2969</span>      <span class="mi">20</span><span class="o">.</span><span class="mi">34</span>      <span class="mi">14</span><span class="o">.</span><span class="mo">06</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">74</span>
-</span><span class='line'>            <span class="mi">8</span>  <span class="no">Australia</span> <span class="no">Western</span> <span class="no">Pa</span>      <span class="mi">23050</span>      <span class="mi">18</span><span class="o">.</span><span class="mi">95</span>      <span class="mi">19</span><span class="o">.</span><span class="mi">46</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">89</span>
-</span><span class='line'>            <span class="mi">9</span>    <span class="no">Austria</span>     <span class="no">Europe</span>       <span class="mi">8464</span>      <span class="mi">14</span><span class="o">.</span><span class="mi">51</span>      <span class="mi">23</span><span class="o">.</span><span class="mi">52</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">44</span>
-</span><span class='line'>           <span class="mi">10</span> <span class="no">Azerbaijan</span>     <span class="no">Europe</span>       <span class="mi">9309</span>      <span class="mi">22</span><span class="o">.</span><span class="mi">25</span>       <span class="mi">8</span><span class="o">.</span><span class="mi">24</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">96</span>
-</span><span class='line'>           <span class="mi">11</span>    <span class="no">Bahamas</span>   <span class="no">Americas</span>        <span class="mi">372</span>      <span class="mi">21</span><span class="o">.</span><span class="mi">62</span>      <span class="mi">11</span><span class="o">.</span><span class="mi">24</span>        <span class="mi">1</span><span class="o">.</span><span class="mi">9</span>
-</span><span class='line'>           <span class="mi">12</span>    <span class="no">Bahrain</span> <span class="no">Eastern</span> <span class="no">Me</span>       <span class="mi">1318</span>      <span class="mi">20</span><span class="o">.</span><span class="mi">16</span>       <span class="mi">3</span><span class="o">.</span><span class="mi">38</span>       <span class="mi">2</span><span class="o">.</span><span class="mi">12</span>
-</span><span class='line'>           <span class="mi">13</span> <span class="no">Bangladesh</span> <span class="no">South</span><span class="o">-</span><span class="no">East</span>     <span class="mi">155000</span>      <span class="mi">30</span><span class="o">.</span><span class="mi">57</span>       <span class="mi">6</span><span class="o">.</span><span class="mi">89</span>       <span class="mi">2</span><span class="o">.</span><span class="mi">24</span>
-</span><span class='line'>           <span class="mi">14</span>   <span class="no">Barbados</span>   <span class="no">Americas</span>        <span class="mi">283</span>      <span class="mi">18</span><span class="o">.</span><span class="mi">99</span>      <span class="mi">15</span><span class="o">.</span><span class="mi">78</span>       <span class="mi">1</span><span class="o">.</span><span class="mi">84</span>
-</span><span class='line'>          <span class="o">.</span><span class="n">.</span><span class="o">.</span>        <span class="o">.</span><span class="n">.</span><span class="o">.</span>        <span class="o">.</span><span class="n">.</span><span class="o">.</span>        <span class="o">.</span><span class="n">.</span><span class="o">.</span>        <span class="o">.</span><span class="n">.</span><span class="o">.</span>        <span class="o">.</span><span class="n">.</span><span class="o">.</span>        <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The data is about countries. The region column describes the region that country belongs to. A region can have more than one country.</p>
-
-<p>This a ideal place where we can use Categorical Index if we want to study about different regions.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">CategoricalIndex</span><span class="o">.</span><span class="n">new</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">vector</span><span class="o">[</span><span class="s1">&#39;Region&#39;</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">#&lt;Daru::CategoricalIndex(194): {Eastern Mediterranean, Europe, Africa, Europe, Africa, Americas, Americas, Europe, Western Pacific, Europe, Europe, Americas, Eastern Mediterranean, South-East Asia, Americas, Europe, Europe, Americas, Africa, South-East Asia ... Africa}&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Let&rsquo;s see all regions there are:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">cat</span>
-</span><span class='line'>  <span class="o">[</span><span class="s2">&quot;Eastern Mediterranean&quot;</span><span class="p">,</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span> <span class="s2">&quot;Americas&quot;</span><span class="p">,</span> <span class="s2">&quot;Western Pacific&quot;</span><span class="p">,</span> <span class="s2">&quot;South-East Asia&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Let&rsquo;s find out how many countries lie in Africa region.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;Africa&#39;</span><span class="o">].</span><span class="n">size</span>
-</span><span class='line'>  <span class="mi">46</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Finding out the mean life expectancy of europe is as easy as</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;Europe&#39;</span><span class="o">].</span><span class="n">vector</span><span class="o">[</span><span class="s1">&#39;LifeExpectancy&#39;</span><span class="o">].</span><span class="n">mean</span>
-</span><span class='line'>  <span class="mi">76</span><span class="o">.</span><span class="mi">73584905660377</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Let&rsquo;s see the maximum life expectancy  of South-East Asia</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;South-East Asia&#39;</span><span class="o">].</span><span class="n">vector</span><span class="o">[</span><span class="s1">&#39;LifeExpectancy&#39;</span><span class="o">].</span><span class="n">min</span>
-</span><span class='line'>  <span class="mi">63</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Internal architecture</h2>
-
-<p>To efficiently store the index and make retrieval possible in constant time, <code>Daru::CategoricalIndex</code> uses two data structres-
-- Hash-table: To map each category to positional values. It is represented as <code>@cat_hash</code>.
-- Array: To map each position to a integer which represent a category.</p>
-
-<p>For example:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">idx</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">CategoricalIndex</span><span class="o">.</span><span class="n">new</span> <span class="o">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:C</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>For <code>idx</code>, the hash table and array woul be:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@cat_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="vi">@array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>(Of course, we would need to have a variable to map <code>0</code> to <code>:a</code>, <code>1</code> to <code>:b</code> and <code>2</code> to <code>:c</code>.)</p>
-
-<p>The hash table helps us in retriving all instances which belong to that category in real time.</p>
-
-<p>Similary, the array helps us in retriving category of an instance in constant time.</p>
-
-<p>And the reason to store integers in the array instead of name of categories itself is to avoid unnecessary usage of space.</p>
-
-<h2>When and why to use Categorical Index</h2>
-
-<p>If you have a categorical variable or data where there are more than one instance of same object and you want to index the dataframe by that column.</p>
-
-<p>It will save you a lot of space and make access to the same category fast.</p>
-
-<p>Also if you want your dataframe to be indexed by a column in which not every entry is unique categorical index will come to the rescue.</p>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lokeshh.github.io/blog/2016/06/21/categorical-data/" data-via="" data-counturl="http://lokeshh.github.io/blog/2016/06/21/categorical-data/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/06/14/categorical-index/" title="Previous Post: Categorical Index [Week 1-2]">&laquo; Categorical Index [Week 1-2]</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -531,6 +355,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same. Look at (I
 
   
 </aside>
+
 
     </div>
   </div>

@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-06-14T08:04:01+00:00</updated>
+  <updated>2016-06-22T20:52:19+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -12,6 +12,218 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Categorical Data [Week 3-4]]]></title>
+    <link href="http://lokeshh.github.io/blog/2016/06/21/categorical-data/"/>
+    <updated>2016-06-21T20:19:08+00:00</updated>
+    <id>http://lokeshh.github.io/blog/2016/06/21/categorical-data</id>
+    <content type="html"><![CDATA[<p>Daru has now the capability to store and process categorical data.</p>
+
+<p>Daru has now three types of vector
+- :object
+- :numeric
+- :category (new)</p>
+
+<p>With introduction of categorical data, Daru has now two benefits
+1. Storage of categorical data is very effective.
+2. Tasks related to categorical data have become a lot easier</p>
+
+<p>The reason for 1 is that it in ordinary vector the data is stored as an array.
+It doesn&rsquo;t consider the fact that most of the entries are same. Look at (Internal Structure) for more information.</p>
+
+<p>Lets discuss the various tasks which can now be done easily related to categorical vector.</p>
+
+<p>(The purpose of this blog is to give an overview of what tasks you can accomplish with categorical data. To learn about what each method I highly looking at <a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Categorical%20Data.ipynb">this notebook</a>)</p>
+
+<p>As soon as one declares a categorical variable, one can look at frequency count of each category to get judgement of the data:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">rank</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="o">.</span><span class="n">new</span> <span class="o">[</span><span class="s1">&#39;III&#39;</span><span class="o">]*</span><span class="mi">10</span> <span class="o">+</span> <span class="o">[</span><span class="s1">&#39;II&#39;</span><span class="o">]*</span><span class="mi">5</span> <span class="o">+</span> <span class="o">[</span><span class="s1">&#39;I&#39;</span><span class="o">]*</span><span class="mi">5</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:category</span><span class="p">,</span> <span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;II&#39;</span><span class="p">,</span> <span class="s1">&#39;III&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">rank</span><span class="o">.</span><span class="n">frequencies</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::Vector(3)&gt;</span>
+</span><span class='line'>   <span class="n">I</span>   <span class="mi">5</span>
+</span><span class='line'>  <span class="no">II</span>   <span class="mi">5</span>
+</span><span class='line'> <span class="no">III</span>  <span class="mi">10</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>One can look over the summary of the data to get to know common numbers about categorical data like how many categories are present, which is the most frequenct category, etc.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">rank</span><span class="o">.</span><span class="n">summary</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::Vector(6)&gt;</span>
+</span><span class='line'>         <span class="n">size</span>           <span class="mi">20</span>
+</span><span class='line'>   <span class="n">categories</span>            <span class="mi">3</span>
+</span><span class='line'>     <span class="n">max_freq</span>           <span class="mi">10</span>
+</span><span class='line'> <span class="n">max_category</span>          <span class="no">III</span>
+</span><span class='line'>     <span class="n">min_freq</span>            <span class="mi">5</span>
+</span><span class='line'> <span class="n">min_category</span>            <span class="n">I</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Its possible to convert a numerical variable into categorical variable. For example you have measures of height and you want to categorize them:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">heights</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="o">.</span><span class="n">new</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">51</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">heights</span><span class="o">.</span><span class="n">cut</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">cut</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span><span class="o">.</span><span class="n">frequencies</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::Vector(3)&gt;</span>
+</span><span class='line'> <span class="mi">30</span><span class="o">-</span><span class="mi">39</span>     <span class="mi">3</span>
+</span><span class='line'> <span class="mi">40</span><span class="o">-</span><span class="mi">49</span>     <span class="mi">1</span>
+</span><span class='line'> <span class="mi">50</span><span class="o">-</span><span class="mi">59</span>     <span class="mi">2</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Given a dataframe its possible to extract rows based on the categories. It uses the same Area-like query syntax like an ordinary vector. For example</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">DataFrame</span><span class="o">.</span><span class="n">new</span><span class="p">({</span>
+</span><span class='line'>  <span class="nb">id</span><span class="p">:</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>  <span class="ss">grade</span><span class="p">:</span> <span class="sx">%w[A C B A C C B B]</span><span class="p">,</span>
+</span><span class='line'>  <span class="nb">name</span><span class="p">:</span> <span class="o">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="p">})</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">].</span><span class="n">to_category</span> <span class="ss">ordered</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">categories</span><span class="p">:</span> <span class="sx">%w[A B C]</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">where</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">].</span><span class="n">lt</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(5x3)&gt;</span>
+</span><span class='line'>       <span class="n">grade</span>    <span class="nb">id</span>  <span class="nb">name</span>
+</span><span class='line'>     <span class="mi">0</span>     <span class="n">A</span>     <span class="mi">0</span>     <span class="n">a</span>
+</span><span class='line'>     <span class="mi">2</span>     <span class="n">B</span>     <span class="mi">2</span>     <span class="n">c</span>
+</span><span class='line'>     <span class="mi">3</span>     <span class="n">A</span>     <span class="mi">3</span>     <span class="n">d</span>
+</span><span class='line'>     <span class="mi">6</span>     <span class="n">B</span>     <span class="mi">6</span>     <span class="n">g</span>
+</span><span class='line'>     <span class="mi">7</span>     <span class="n">B</span>     <span class="mi">7</span>     <span class="n">h</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The benefit as you can see is that were able to order the categories and based on that queried the dataframe.</p>
+
+<p>By defining the custom order of categories and setting <code>ordered</code> to <code>true</code>, one can sort the categories, find the min, max, etc. For example</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Assuming df defined as above</span>
+</span><span class='line'><span class="c1"># Lets rename the categories to show you that lexical order is not followed while sorting with categorical data</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">].</span><span class="n">rename_categories</span> <span class="s1">&#39;A&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Average&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bad&#39;</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">df</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(8x3)&gt;</span>
+</span><span class='line'>           <span class="n">grade</span>      <span class="nb">id</span>    <span class="nb">name</span>
+</span><span class='line'>       <span class="mi">0</span>    <span class="no">Good</span>       <span class="mi">0</span>       <span class="n">a</span>
+</span><span class='line'>       <span class="mi">1</span>     <span class="no">Bad</span>       <span class="mi">1</span>       <span class="n">b</span>
+</span><span class='line'>       <span class="mi">2</span> <span class="no">Average</span>       <span class="mi">2</span>       <span class="n">c</span>
+</span><span class='line'>       <span class="mi">3</span>    <span class="no">Good</span>       <span class="mi">3</span>       <span class="n">d</span>
+</span><span class='line'>       <span class="mi">4</span>     <span class="no">Bad</span>       <span class="mi">4</span>       <span class="n">e</span>
+</span><span class='line'>       <span class="mi">5</span>     <span class="no">Bad</span>       <span class="mi">5</span>       <span class="n">f</span>
+</span><span class='line'>       <span class="mi">6</span> <span class="no">Average</span>       <span class="mi">6</span>       <span class="n">g</span>
+</span><span class='line'>       <span class="mi">7</span> <span class="no">Average</span>       <span class="mi">7</span>       <span class="n">h</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">sort!</span> <span class="o">[</span><span class="ss">:grade</span><span class="o">]</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(8x3)&gt;</span>
+</span><span class='line'>           <span class="n">grade</span>      <span class="nb">id</span>    <span class="nb">name</span>
+</span><span class='line'>       <span class="mi">0</span>    <span class="no">Good</span>       <span class="mi">0</span>       <span class="n">a</span>
+</span><span class='line'>       <span class="mi">3</span>    <span class="no">Good</span>       <span class="mi">3</span>       <span class="n">d</span>
+</span><span class='line'>       <span class="mi">2</span> <span class="no">Average</span>       <span class="mi">2</span>       <span class="n">c</span>
+</span><span class='line'>       <span class="mi">6</span> <span class="no">Average</span>       <span class="mi">6</span>       <span class="n">g</span>
+</span><span class='line'>       <span class="mi">7</span> <span class="no">Average</span>       <span class="mi">7</span>       <span class="n">h</span>
+</span><span class='line'>       <span class="mi">1</span>     <span class="no">Bad</span>       <span class="mi">1</span>       <span class="n">b</span>
+</span><span class='line'>       <span class="mi">4</span>     <span class="no">Bad</span>       <span class="mi">4</span>       <span class="n">e</span>
+</span><span class='line'>       <span class="mi">5</span>     <span class="no">Bad</span>       <span class="mi">5</span>       <span class="n">f</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Internal Structure</h2>
+
+<p>Its similar to the internal structure of categorical index.</p>
+
+<p>To efficiently store the duplicates of catgories and make retrieval possible in constant time, categorical data in Daru uses two data structres-
+- Hash-table: To map each category to positional values. It is represented as <code>@cat_hash</code>.
+- Array: To map each position to a integer which represent a category.</p>
+
+<p>For example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">dv</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="o">.</span><span class="n">new</span> <span class="o">[</span><span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:a</span><span class="p">,</span> <span class="ss">:b</span><span class="p">,</span> <span class="ss">:C</span><span class="o">]</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:category</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For <code>dv</code>, the hash table and array would be:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@cat_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="vi">@array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(Of course, we would need to have a variable to map <code>0</code> to <code>:a</code>, <code>1</code> to <code>:b</code> and <code>2</code> to <code>:c</code>.)</p>
+
+<p>The hash table helps us in retriving all instances which belong to that category in real time.</p>
+
+<p>Similary, the array helps us in retriving category of an instance in constant time.</p>
+
+<p>And the reason to store integers in the array instead of name of categories itself is to avoid unnecessary usage of space.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Categorical Index [Week 1-2]]]></title>
