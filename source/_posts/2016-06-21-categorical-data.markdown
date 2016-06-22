@@ -80,7 +80,7 @@ Given a dataframe its possible to extract rows based on the categories. It uses 
      7     B     7     h
 ```
 
-The benefit as you can see is that we were able to order the categories and based on we used `lt`.
+The benefit is that we used `lt` based on the order we set.
 
 By defining the custom order of categories and setting `ordered` to `true`, one can sort the categories, find the min, max, etc. For example
 
