@@ -108,12 +108,12 @@
 </ol>
 
 
-<p>The reason for 1 is that it in ordinary vector the data is stored as an array.
-It doesn&rsquo;t consider the fact that most of the entries are same. Look at (Internal Structure) for more information.</p>
+<p>The reason for <code>1</code> is that in ordinary vector the data is stored as an array.
+It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 
 <p>Lets discuss the various tasks which can now be done easily related to categorical vector.</p>
 
-<p>(The purpose of this blog is to give an overview of what tasks you can accomplish with categorical data. To learn about what each method I highly looking at <a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Categorical%20Data.ipynb">this notebook</a>)</p>
+<p>(The purpose of this blog is to give an overview of what tasks can be accomplished with categorical data. To learn about what each method do and how to use it please look at <a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Categorical%20Data.ipynb">this notebook</a>)</p>
 
 <p>As soon as one declares a categorical variable, one can look at frequency count of each category to get judgement of the data:</p>
 
@@ -153,7 +153,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same. Look at (I
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Its possible to convert a numerical variable into categorical variable. For example you have measures of height and you want to categorize them:</p>
+<p>Its possible to convert a numerical variable into categorical variable. For example <code>heights</code> store measures of heights and we want to categorize them into categories <code>low</code>, <code>medium</code> and <code>high</code>:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -163,14 +163,16 @@ It doesn&rsquo;t consider the fact that most of the entries are same. Look at (I
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
+<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">heights</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="o">.</span><span class="n">new</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">51</span><span class="o">]</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">heights</span><span class="o">.</span><span class="n">cut</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="o">]</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">cut</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span><span class="o">.</span><span class="n">rename_categories</span> <span class="s1">&#39;30-39&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;40-49&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;50-59&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;high&#39;</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span><span class="o">.</span><span class="n">frequencies</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::Vector(3)&gt;</span>
-</span><span class='line'> <span class="mi">30</span><span class="o">-</span><span class="mi">39</span>     <span class="mi">3</span>
-</span><span class='line'> <span class="mi">40</span><span class="o">-</span><span class="mi">49</span>     <span class="mi">1</span>
-</span><span class='line'> <span class="mi">50</span><span class="o">-</span><span class="mi">59</span>     <span class="mi">2</span>
+</span><span class='line'>    <span class="n">low</span>      <span class="mi">3</span>
+</span><span class='line'> <span class="n">medium</span>      <span class="mi">1</span>
+</span><span class='line'>   <span class="n">high</span>      <span class="mi">2</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -211,7 +213,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same. Look at (I
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The benefit as you can see is that were able to order the categories and based on that queried the dataframe.</p>
+<p>The benefit as you can see is that we were able to order the categories and based on we used <code>lt</code>.</p>
 
 <p>By defining the custom order of categories and setting <code>ordered</code> to <code>true</code>, one can sort the categories, find the min, max, etc. For example</p>
 
@@ -241,7 +243,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same. Look at (I
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Assuming df defined as above</span>
-</span><span class='line'><span class="c1"># Lets rename the categories to show you that lexical order is not followed while sorting with categorical data</span>
+</span><span class='line'><span class="c1"># Lets rename the categories to show that lexical order is not followed while sorting with categorical data</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">].</span><span class="n">rename_categories</span> <span class="s1">&#39;A&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Average&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bad&#39;</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">df</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(8x3)&gt;</span>
@@ -272,9 +274,13 @@ It doesn&rsquo;t consider the fact that most of the entries are same. Look at (I
 
 <p>Its similar to the internal structure of categorical index.</p>
 
-<p>To efficiently store the duplicates of catgories and make retrieval possible in constant time, categorical data in Daru uses two data structres-
-- Hash-table: To map each category to positional values. It is represented as <code>@cat_hash</code>.
-- Array: To map each position to a integer which represent a category.</p>
+<p>To efficiently store the duplicates of catgories and make retrieval possible in constant time, categorical data in Daru uses two data structres-</p>
+
+<ul>
+<li>Hash-table: To map each category to positional values. It is represented as <code>@cat_hash</code>.</li>
+<li>Array: To map each position to a integer which represent a category.</li>
+</ul>
+
 
 <p>For example:</p>
 
