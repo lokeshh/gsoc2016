@@ -4,7 +4,7 @@ title: "Categorical Data [Week 3-4]"
 date: 2016-06-21 20:19:08 +0000
 comments: true
 categories:
-published: false
+published: true
 ---
 
 Daru has now the capability to store and process categorical data.
