@@ -8,11 +8,11 @@ categories:
 
 During these two weeks I added visualization of categorical data in addition to support of a new plotting library [Gruff](https://github.com/topfunky/gruff)
 
-Daru supports visualization via three libraries now:
+Daru supports visualization via three libraries:
 
 - [Nyaplot](https://github.com/SciRuby/nyaplot)
 - [GnuplotRB](https://github.com/SciRuby/gnuplotrb/)
-- [Gruff](https://github.com/topfunky/gruff)
+- [Gruff](https://github.com/topfunky/gruff) (new)
 
 Lets discuss them one by one
 
