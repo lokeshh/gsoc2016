@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-06-22T21:09:51+00:00</updated>
+  <updated>2016-07-02T15:44:55+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -198,6 +198,10 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 </span><span class='line'>       <span class="mi">5</span>     <span class="no">Bad</span>       <span class="mi">5</span>       <span class="n">f</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Example</h2>
+
+<p>Please have a look at <a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/%5BExample%5D%20Categorical%20Data.ipynb">this notebook</a> which describes use of categorical data though an example.</p>
 
 <h2>Internal Structure</h2>
 
