@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-02T16:32:30+00:00</updated>
+  <updated>2016-07-02T16:40:21+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -20,12 +20,12 @@
     <id>http://lokeshh.github.io/blog/2016/07/02/visualization</id>
     <content type="html"><![CDATA[<p>During these two weeks I added visualization of categorical data in addition to support of a new plotting library <a href="https://github.com/topfunky/gruff">Gruff</a></p>
 
-<p>Daru supports visualization via three libraries now:</p>
+<p>Daru supports visualization via three libraries:</p>
 
 <ul>
 <li><a href="https://github.com/SciRuby/nyaplot">Nyaplot</a></li>
 <li><a href="https://github.com/SciRuby/gnuplotrb/">GnuplotRB</a></li>
-<li><a href="https://github.com/topfunky/gruff">Gruff</a></li>
+<li><a href="https://github.com/topfunky/gruff">Gruff</a> (new)</li>
 </ul>
 
 
