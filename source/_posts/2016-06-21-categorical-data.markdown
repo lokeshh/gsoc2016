@@ -112,6 +112,10 @@ By defining the custom order of categories and setting `ordered` to `true`, one 
        5     Bad       5       f
 ```
 
+## Example
+
+Please have a look at [this notebook](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/%5BExample%5D%20Categorical%20Data.ipynb) which describes use of categorical data though an example. 
+
 ## Internal Structure
 
 Its similar to the internal structure of categorical index.
