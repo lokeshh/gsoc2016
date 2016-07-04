@@ -39,24 +39,26 @@ No work was done regarding supporting categorical data visualization in GnuplotR
 
 ## Gruff
 
-Gruff is a new plotting library that has just been added to Daru. [Gruff](https://github.com/topfunky/gruff) offers remarkably beautiful plots with very less effort. It also offers pie and sidebar plots which currently the other two libraries don't offers.
+Gruff is a new plotting library that has just been added to Daru. [Gruff](https://github.com/topfunky/gruff) offers remarkably beautiful plots with very less effort. It also offers pie and sidebar plots which currently the other two libraries don't offer.
 
-These two notebooks show examples related to plotting of Daru::Vector and Daru::DataFrame:
+These two notebooks show examples related to plotting of `Daru::Vector` and `Daru::DataFrame`:
 
 - [Plotting of Vector](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20Vector.ipynb)
 - [Plotting of DataFrame](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20DataFrame.ipynb)
 
 ## Choose from different libraries
 
-To easily movie between these all these libraries, Daru has following functions:
+To easily move between these all these libraries, Daru has following functions:
 
 - `Daru.plotting_library`
 - `Daru::Vector#plotting_library`
 - `Daru::DataFrame#plotting_library`
 
-Using `Daru.plotting_library = :gruff` one can movie from Nyaplot from Gruff. This means all the plots created after this will be plotted using Gruff.
+Using `Daru.plotting_library = :gruff` one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.
 
-Inorder to change change plotting library for only a specific vector, one can use `dv.plotting_library = :gruff`. This will only changae plotting library for this vector and all other vector created will created using the library as set by `Daru.plotting_library`.
+Inorder to change plotting library for only a specific vector, one can use `Daru::Vector#plotting_library`. For example, `dv.plotting_library = :gruff`. This will only change plotting library for this vector and all other vector created will created using the library as set by `Daru.plotting_library`.
+
+The same goes for dataframes, one can use `df.plotting_library = :gruff` to set plotting library for data frame `df` to Gruff.
 
 ## Summary
 
