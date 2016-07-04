@@ -39,7 +39,12 @@ No work was done regarding supporting categorical data visualization in GnuplotR
 
 ## Gruff
 
-Gruff is a new plotting library that has just been added to Daru. With [Gruff](https://github.com/topfunky/gruff) provides a number of beatiful themes to choose from.
+Gruff is a new plotting library that has just been added to Daru. [Gruff](https://github.com/topfunky/gruff) offers remarkably beautiful plots with very less effort. It also offers pie and sidebar plots which currently the other two libraries don't offers.
+
+These two notebooks show examples related to plotting of Daru::Vector and Daru::DataFrame:
+
+- [Plotting of Vector](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20Vector.ipynb)
+- [Plotting of DataFrame](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20DataFrame.ipynb)
 
 ## Choose from different libraries
 
