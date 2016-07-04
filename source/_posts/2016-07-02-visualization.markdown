@@ -39,9 +39,19 @@ No work was done regarding supporting categorical data visualization in GnuplotR
 
 ## Gruff
 
-Gruff is a new plotting library that has just been added to Daru. One can say that Gruff fill the gap where the other two libraries currently lag behind.
+Gruff is a new plotting library that has just been added to Daru. With [Gruff](https://github.com/topfunky/gruff) provides a number of beatiful themes to choose from.
 
-TOBECOMPLETED
+## Choose from different libraries
+
+To easily movie between these all these libraries, Daru has following functions:
+
+- `Daru.plotting_library`
+- `Daru::Vector#plotting_library`
+- `Daru::DataFrame#plotting_library`
+
+Using `Daru.plotting_library = :gruff` one can movie from Nyaplot from Gruff. This means all the plots created after this will be plotted using Gruff.
+
+Inorder to change change plotting library for only a specific vector, one can use `dv.plotting_library = :gruff`. This will only changae plotting library for this vector and all other vector created will created using the library as set by `Daru.plotting_library`.
 
 ## Summary
 
