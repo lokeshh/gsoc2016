@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-04T19:34:04+00:00</updated>
+  <updated>2016-07-04T19:35:14+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -80,7 +80,7 @@
 
 <p><code>Daru.plotting_library</code> can be used to set the current plotting library. For example, using <code>Daru.plotting_library = :gruff</code> one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.</p>
 
-<p>Inorder to change plotting library for only a specific vector, one can use <code>Daru::Vector#plotting_library</code>. For example, <code>dv.plotting_library = :gruff</code>. This will only change plotting library for this vector and all other vector created will created using the library as set by <code>Daru.plotting_library</code>.</p>
+<p>Inorder to change plotting library for only a specific vector, one can use <code>Daru::Vector#plotting_library</code>. For example, <code>dv.plotting_library = :gruff</code> will only change plotting library for this vector and all other vector created will created using the library as set by <code>Daru.plotting_library</code>.</p>
 
 <p>The same goes for dataframes, one can use <code>df.plotting_library = :gruff</code> to set plotting library for data frame <code>df</code> to Gruff.</p>
 
