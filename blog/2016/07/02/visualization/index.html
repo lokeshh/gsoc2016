@@ -123,9 +123,22 @@
 
 <h2>Gruff</h2>
 
-<p>Gruff is a new plotting library that has just been added to Daru. One can say that Gruff fill the gap where the other two libraries currently lag behind.</p>
+<p>Gruff is a new plotting library that has just been added to Daru. With <a href="https://github.com/topfunky/gruff">Gruff</a> provides a number of beatiful themes to choose from.</p>
 
-<p>TOBECOMPLETED</p>
+<h2>Choose from different libraries</h2>
+
+<p>To easily movie between these all these libraries, Daru has following functions:</p>
+
+<ul>
+<li><code>Daru.plotting_library</code></li>
+<li><code>Daru::Vector#plotting_library</code></li>
+<li><code>Daru::DataFrame#plotting_library</code></li>
+</ul>
+
+
+<p>Using <code>Daru.plotting_library = :gruff</code> one can movie from Nyaplot from Gruff. This means all the plots created after this will be plotted using Gruff.</p>
+
+<p>Inorder to change change plotting library for only a specific vector, one can use <code>dv.plotting_library = :gruff</code>. This will only changae plotting library for this vector and all other vector created will created using the library as set by <code>Daru.plotting_library</code>.</p>
 
 <h2>Summary</h2>
 
