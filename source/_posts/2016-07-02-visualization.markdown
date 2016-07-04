@@ -54,9 +54,9 @@ To easily move between these all these libraries, Daru has following functions:
 - `Daru::Vector#plotting_library`
 - `Daru::DataFrame#plotting_library`
 
-Using `Daru.plotting_library = :gruff` one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.
+`Daru.plotting_library` can be used to set the current plotting library. For example, using `Daru.plotting_library = :gruff` one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.
 
-Inorder to change plotting library for only a specific vector, one can use `Daru::Vector#plotting_library`. For example, `dv.plotting_library = :gruff`. This will only change plotting library for this vector and all other vector created will created using the library as set by `Daru.plotting_library`.
+Inorder to change plotting library for only a specific vector, one can use `Daru::Vector#plotting_library`. For example, `dv.plotting_library = :gruff` will only change plotting library for vector `dv` and all other vector created will created using the library as set by `Daru.plotting_library`.
 
 The same goes for dataframes, one can use `df.plotting_library = :gruff` to set plotting library for data frame `df` to Gruff.
 
