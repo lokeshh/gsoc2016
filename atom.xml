@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-04T19:35:50+00:00</updated>
+  <updated>2016-07-19T20:10:10+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -12,6 +12,122 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Formula Language Implementation [Week 7-8]]]></title>
+    <link href="http://lokeshh.github.io/blog/2016/07/19/formula-language-week7-8/"/>
+    <updated>2016-07-19T18:26:41+00:00</updated>
+    <id>http://lokeshh.github.io/blog/2016/07/19/formula-language-week7-8</id>
+    <content type="html"><![CDATA[<p>After the end of 6 weeks we have category data support in Daru. Now in the coming weeks we will be adding support for category data in Statsample and Statsample-GLM.</p>
+
+<p>Currently, Statsample and Statsample-GLM do not support regression with category data.</p>
+
+<p>With the introduction of formula language I am looking to accomplish the following:
+- To support regression with category data
+- To provide convenience of formula language to create regression models</p>
+
+<p>In these two weeks I have implemented a formula language but it is limited in certain ways. The work of following weeks will fill this gap.</p>
+
+<p>Lets talk about the formula language I have implemented in these two weeks.</p>
+
+<h2>Formula Language</h2>
+
+<p>The formula language which I aim to implement is similar to that used within <a href="https://patsy.readthedocs.io/en/stable/formulas.html#how-formulas-work">R and Patsy</a></p>
+
+<p>With the work of these two weeks, the formula language has the following features:
+- It supports 2-way interaction.
+- It supports <code>:</code> and <code>+</code></p>
+
+<p>And since I have followed the Patsy way of implementing the formula langauge it has an edge over R. Since, Patsy has a more accurate algorithm for deciding whether to use a full- or reduced-rank coding scheme for categorical factors, the same is inherited in Statsample and Statsample-GLM.</p>
+
+<p>R sometimes can give under-specified model but this is not the case with our implementation. One example is expansion of <code>0 + a:x + a:b</code>, where <code>x</code> is numeric. More information about this can be found <a href="https://patsy.readthedocs.io/en/stable/R-comparison.html">here</a>.</p>
+
+<p>I am thankful to Patsy for it made my work very easy by providing all the details in their <a href="https://patsy.readthedocs.io/en/stable/formulas.html#how-formulas-work">documentation</a>. Without it I would have fallen into many pitfalls.</p>
+
+<p>Now lets see formula language in action in Statsample and Statsample-GLM.</p>
+
+<h2>Regression in Statsample-GLM</h2>
+
+<p>Regression in Statsample-GLM has become an easy task as well as it now supports category data as predictor variables.</p>
+
+<p>Lets see this by an example.</p>
+
+<p>Lets assume a dataframe <code>df</code> with numeric columns <code>a</code>, <code>b</code>, and having category column <code>c</code>, <code>d</code>, <code>e</code>.</p>
+
+<p>Lets create a logistic model with predictors <code>a</code>, <code>a*b</code>, <code>c</code> and <code>c:d</code>.</p>
+
+<p>If we were to do this earlier, we would have done the following.</p>
+
+<p>Since we can&rsquo;t code category variables, so lets leave <code>c</code> and <code>c:d</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">train</span><span class="o">[</span><span class="s1">&#39;a:b&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="n">train</span><span class="o">[</span><span class="s1">&#39;a&#39;</span><span class="o">]</span> <span class="o">*</span> <span class="n">train</span><span class="o">[</span><span class="s1">&#39;b&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">train</span> <span class="o">=</span> <span class="n">train</span><span class="o">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a:b&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">mod</span> <span class="o">=</span> <span class="no">Statsample</span><span class="o">::</span><span class="no">GLM</span><span class="o">.</span><span class="n">compute</span> <span class="n">train</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="ss">:logistic</span><span class="p">,</span> <span class="ss">constant</span><span class="p">:</span> <span class="mi">1</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="c1"># Now lets obtain predictions</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="nb">test</span><span class="o">[</span><span class="s1">&#39;a:b&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="nb">test</span><span class="o">[</span><span class="s1">&#39;a&#39;</span><span class="o">]</span> <span class="o">*</span> <span class="nb">test</span><span class="o">[</span><span class="s1">&#39;b&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="nb">test</span> <span class="o">=</span> <span class="nb">test</span><span class="o">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a:b&#39;</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">mod</span><span class="o">.</span><span class="n">predict</span> <span class="nb">test</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::Vector(3)&gt;</span>
+</span><span class='line'>      <span class="mi">0</span> <span class="mi">0</span><span class="o">.</span><span class="mi">9999</span>
+</span><span class='line'>      <span class="mi">1</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0123</span>
+</span><span class='line'>      <span class="mi">2</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5925</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With now with the introduction of formula langauge it has become a very easy task with no work required to preprocess the dataframe.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">reg</span> <span class="o">=</span> <span class="no">Statsample</span><span class="o">::</span><span class="no">GLM</span><span class="o">::</span><span class="no">Regression</span><span class="o">.</span><span class="n">new</span> <span class="s1">&#39;y~a+a:b+c+c:d&#39;</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="ss">:logistic</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span> <span class="nb">test</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::Vector(3)&gt;</span>
+</span><span class='line'>      <span class="mi">0</span> <span class="mi">0</span><span class="o">.</span><span class="mi">2999</span>
+</span><span class='line'>      <span class="mi">1</span> <span class="mi">0</span><span class="o">.</span><span class="mi">1523</span>
+</span><span class='line'>      <span class="mi">2</span> <span class="mi">0</span><span class="o">.</span><span class="mi">8925</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above code not only enables predictions with caetgory data but also reflects the powerful formula langauge.</p>
+
+<p>Lets have a look at Statsample now.</p>
+
+<h2>Statsample</h2>
+
+<p>With Statsample, its the same. Now one can perform multiple regression with formula language and category variables as predictors.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">reg</span> <span class="o">=</span> <span class="no">Statsample</span><span class="o">::</span><span class="no">FitModel</span><span class="o">.</span><span class="n">new</span> <span class="s1">&#39;y~a+a:b+c+c:d&#39;</span><span class="p">,</span> <span class="n">train</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">model</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will give a multiple linear regression model.</p>
+
+<h2>Conclusion</h2>
+
+<p>The introduction of formula language and ability to do handle category data has given a great boost to Data Analysis in Ruby and I really hope we keep improving it further and further.</p>
+
+<p>In the coming weeks I will look forward to implement the following:
+- Add more than 2-way interaction support
+- Support for shortcut symbols &lsquo;*&rsquo;, &lsquo;/&rsquo;, etc.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Visualization [Week 5-6]]]></title>
