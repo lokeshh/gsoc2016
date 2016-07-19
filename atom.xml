@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-19T20:16:42+00:00</updated>
+  <updated>2016-07-19T20:17:44+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -130,7 +130,7 @@
 
 <h2>Conclusion</h2>
 
-<p>The introduction of formula language and ability to do handle category data has given a great boost to Data Analysis in Ruby and I really hope we keep improving it further and further.</p>
+<p>The introduction of formula language and ability to handle category data has given a great boost to Data Analysis in Ruby and I really hope we keep improving it further and further.</p>
 
 <p>In the coming weeks I will look forward to implement the following:</p>
 
