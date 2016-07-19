@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-19T20:10:10+00:00</updated>
+  <updated>2016-07-19T20:11:40+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -22,9 +22,13 @@
 
 <p>Currently, Statsample and Statsample-GLM do not support regression with category data.</p>
 
-<p>With the introduction of formula language I am looking to accomplish the following:
-- To support regression with category data
-- To provide convenience of formula language to create regression models</p>
+<p>With the introduction of formula language I am looking to accomplish the following:</p>
+
+<ul>
+<li>To support regression with category data</li>
+<li>To provide convenience of formula language to create regression models</li>
+</ul>
+
 
 <p>In these two weeks I have implemented a formula language but it is limited in certain ways. The work of following weeks will fill this gap.</p>
 
