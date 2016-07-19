@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-19T20:13:52+00:00</updated>
+  <updated>2016-07-19T20:15:22+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -57,7 +57,7 @@
 
 <h2>Regression in Statsample-GLM</h2>
 
-<p>Regression in Statsample-GLM has become an easy task as well as it now supports category data as predictor variables.</p>
+<p>Regression in Statsample-GLM has become an easy task and in addition it now supports category data as predictor variables.</p>
 
 <p>Lets see this by an example.</p>
 
