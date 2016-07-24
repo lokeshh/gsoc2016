@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-24T02:44:22+00:00</updated>
+  <updated>2016-07-24T02:54:08+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -112,6 +112,8 @@
 
 
 <p>The above code not only enables predictions with caetgory data but also reflects the powerful formula langauge.</p>
+
+<p><a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/%5BExample%5D%20Formula%20language%20in%20Statsample-GLM.ipynb">Here&rsquo;s</a> a notebook that describes the use of formula language in Statsample-GLM using real life data.</p>
 
 <p>Lets have a look at Statsample now.</p>
 
