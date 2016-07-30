@@ -91,9 +91,9 @@
 <p>Daru has now three types of vector</p>
 
 <ul>
-<li>:object</li>
-<li>:numeric</li>
-<li>:category (new)</li>
+<li><code>:object</code></li>
+<li><code>:numeric</code></li>
+<li><code>:category (new)</code></li>
 </ul>
 
 
@@ -105,12 +105,11 @@
 </ol>
 
 
-<p>The reason for <code>1</code> is that in ordinary vector the data is stored as an array.
-It doesn&rsquo;t consider the fact that most of the entries are same.</p>
+<p>The reason for <code>1</code> is that in ordinary vector the data is stored as an array, it doesn&rsquo;t consider the fact that most of the entries are same.</p>
 
 <p>Lets discuss the various tasks which can now be done easily related to categorical vector.</p>
 
-<p>(The purpose of this blog is to give an overview of what tasks can be accomplished with categorical data. To learn about what each method do and how to use it please look at <a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Categorical%20Data.ipynb">this notebook</a>)</p>
+<p>(The purpose of this blog is to give an overview of what tasks can be accomplished with categorical data. To learn about what each method do and how to use it please look at <a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Categorical%20Data.ipynb">this notebook</a>)</p>
 
 <p>As soon as one declares a categorical variable, one can look at frequency count of each category to get judgement of the data:</p>
 
@@ -159,12 +158,8 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">heights</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="o">.</span><span class="n">new</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">51</span><span class="o">]</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="n">heights</span><span class="o">.</span><span class="n">cut</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="o">]</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">cut</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="o">]</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span><span class="o">.</span><span class="n">rename_categories</span> <span class="s1">&#39;30-39&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;40-49&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;50-59&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;high&#39;</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">heights_cat</span> <span class="o">=</span> <span class="n">heights</span><span class="o">.</span><span class="n">cut</span> <span class="o">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="o">]</span><span class="p">,</span> <span class="ss">labels</span><span class="p">:</span> <span class="o">[</span><span class="s1">&#39;low&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;high&#39;</span><span class="o">]</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">height_cat</span><span class="o">.</span><span class="n">frequencies</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::Vector(3)&gt;</span>
 </span><span class='line'>    <span class="n">low</span>      <span class="mi">3</span>
@@ -191,6 +186,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
+<span class='line-number'>17</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">DataFrame</span><span class="o">.</span><span class="n">new</span><span class="p">({</span>
 </span><span class='line'>  <span class="nb">id</span><span class="p">:</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="o">]</span><span class="p">,</span>
 </span><span class='line'>  <span class="ss">grade</span><span class="p">:</span> <span class="sx">%w[A C B A C C B B]</span><span class="p">,</span>
@@ -199,6 +195,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 </span><span class='line'>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">].</span><span class="n">to_category</span> <span class="ss">ordered</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">categories</span><span class="p">:</span> <span class="sx">%w[A B C]</span>
 </span><span class='line'>
+</span><span class='line'><span class="c1"># Lets list entries with grade less than &#39;C&#39;</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">where</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">].</span><span class="n">lt</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(5x3)&gt;</span>
 </span><span class='line'>       <span class="n">grade</span>    <span class="nb">id</span>  <span class="nb">name</span>
@@ -239,8 +236,10 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
+<span class='line-number'>26</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Assuming df defined as above</span>
-</span><span class='line'><span class="c1"># Lets rename the categories to show that lexical order is not followed while sorting with categorical data</span>
+</span><span class='line'><span class="c1"># Lets rename the categories to show that lexical order is not followed</span>
+</span><span class='line'><span class="c1"># while sorting with categorical data</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">[</span><span class="ss">:grade</span><span class="o">].</span><span class="n">rename_categories</span> <span class="s1">&#39;A&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Average&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Bad&#39;</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">df</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(8x3)&gt;</span>
