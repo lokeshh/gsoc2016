@@ -11,21 +11,20 @@ Daru has now the capability to store and process categorical data.
 
 Daru has now three types of vector
 
-- :object
-- :numeric
-- :category (new)
+- `:object`
+- `:numeric`
+- `:category (new)`
 
 With introduction of categorical data, Daru has now two benefits-
 
 1. Storage of categorical data is very effective.
 2. Tasks related to categorical data have become a lot easier
 
-The reason for `1` is that in ordinary vector the data is stored as an array.
-It doesn't consider the fact that most of the entries are same.
+The reason for `1` is that in ordinary vector the data is stored as an array, it doesn't consider the fact that most of the entries are same.
 
 Lets discuss the various tasks which can now be done easily related to categorical vector.
 
-(The purpose of this blog is to give an overview of what tasks can be accomplished with categorical data. To learn about what each method do and how to use it please look at [this notebook](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Categorical%20Data.ipynb))
+(The purpose of this blog is to give an overview of what tasks can be accomplished with categorical data. To learn about what each method do and how to use it please look at [this notebook](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Categorical%20Data.ipynb))
 
 As soon as one declares a categorical variable, one can look at frequency count of each category to get judgement of the data:
 
@@ -51,9 +50,7 @@ One can look over the summary of the data to get to know common numbers about ca
 Its possible to convert a numerical variable into categorical variable. For example `heights` store measures of heights and we want to categorize them into categories `low`, `medium` and `high`:
 ```ruby
 > heights = Daru::Vector.new [30, 35, 32, 50, 42, 51]
-> heights.cut [30, 40, 50, 60]
-> height_cat = heights.cut [30, 40, 50, 60]
-> height_cat.rename_categories '30-39' => 'low', '40-49' => 'medium', '50-59' => 'high'
+> heights_cat = heights.cut [30, 40, 50, 60], labels: ['low', 'medium', 'high']
 > height_cat.frequencies
 => #<Daru::Vector(3)>
     low      3
@@ -70,6 +67,7 @@ Given a dataframe its possible to extract rows based on the categories. It uses 
 
 > df[:grade] = df[:grade].to_category ordered: true, categories: %w[A B C]
 
+# Lets list entries with grade less than 'C'
 > df.where df[:grade].lt('C')
 => #<Daru::DataFrame(5x3)>
        grade    id  name
@@ -86,7 +84,8 @@ By defining the custom order of categories and setting `ordered` to `true`, one 
 
 ```ruby
 # Assuming df defined as above
-# Lets rename the categories to show that lexical order is not followed while sorting with categorical data
+# Lets rename the categories to show that lexical order is not followed
+# while sorting with categorical data
 > df[:grade].rename_categories 'A' => 'Good', 'B' => 'Average', 'C' => 'Bad'
 > df
 => #<Daru::DataFrame(8x3)>
@@ -114,7 +113,7 @@ By defining the custom order of categories and setting `ordered` to `true`, one 
 
 ## Example
 
-Please have a look at [this notebook](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/%5BExample%5D%20Categorical%20Data.ipynb) which describes use of categorical data though an example. 
+Please have a look at [this notebook](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/examples/%5BExample%5D%20Categorical%20Data.ipynb) which describes use of categorical data though an example. 
 
 ## Internal Structure
 
