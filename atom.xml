@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-30T13:38:53+00:00</updated>
+  <updated>2016-07-30T13:44:05+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -182,9 +182,9 @@
 
 <p>GnuplotRB strength lies in its offering of highly customized plots with yet a very simple to use API.</p>
 
-<p>No work was done regarding supporting categorical data visualization in GnuplotRB because it supports it out of the box owing to its easy to API that lets plot multiple plots with a variety of features.</p>
+<p>No work was done regarding supporting categorical data visualization in GnuplotRB because it supports it out of the box owing to its easy to use API that lets plot multiple plots with a variety of features.</p>
 
-<p><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gnuplotrb.ipynb">Here&rsquo;s</a> a notebook demonstrating examples in the manner category data can be visualizaed using GnuplotRB.</p>
+<p><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gnuplotrb.ipynb">Here&rsquo;s</a> a notebook demonstrating examples in the way category data can be visualizaed using GnuplotRB.</p>
 
 <h2>Gruff</h2>
 
@@ -193,8 +193,8 @@
 <p>These two notebooks show examples related to plotting of <code>Daru::Vector</code> and <code>Daru::DataFrame</code>:</p>
 
 <ul>
-<li><a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20Vector.ipynb">Plotting of Vector</a></li>
-<li><a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20DataFrame.ipynb">Plotting of DataFrame</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gruff%20Vector.ipynb">Plotting of Vector</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gruff%20DataFrame.ipynb">Plotting of DataFrame</a></li>
 </ul>
 
 
@@ -211,7 +211,7 @@
 
 <p><code>Daru.plotting_library</code> can be used to set the current plotting library. For example, using <code>Daru.plotting_library = :gruff</code> one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.</p>
 
-<p>Inorder to change plotting library for only a specific vector, one can use <code>Daru::Vector#plotting_library</code>. For example, <code>dv.plotting_library = :gruff</code> will only change plotting library for vector <code>dv</code> and all other vector created will created using the library as set by <code>Daru.plotting_library</code>.</p>
+<p>Inorder to change plotting library for only a specific vector, one can use <code>Daru::Vector#plotting_library</code>. For example, <code>dv.plotting_library = :gruff</code> will only change plotting library for vector <code>dv</code> and all other vectors created will created using the library as set by <code>Daru.plotting_library</code>.</p>
 
 <p>The same goes for dataframes, one can use <code>df.plotting_library = :gruff</code> to set plotting library for data frame <code>df</code> to Gruff.</p>
 
