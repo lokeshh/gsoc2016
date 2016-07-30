@@ -25,7 +25,7 @@ Daru has got now 4 types of indexes to index data:
 
 The new `Daru::CategoricalIndex` is helpful with data indexed with sparsely populated index with each unique index value as category.
 
-Please visit [this link](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20Vector.ipynb) before to get a basic understanding of how indexing works in Daru::Vector and [this link](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20DataFrame.ipynb) for Daru::DataFrame.
+Please visit [this link](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20Vector.ipynb) before to get a basic understanding of how indexing works in `Daru::Vector` and [this link](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20DataFrame.ipynb) for `Daru::DataFrame`.
 
 ## Example
 
@@ -121,8 +121,6 @@ For `idx`, the hash table and array woul be:
 
 @array = [0, 1, 0, 1, 2]
 ```
-
-(Of course, we would need to have a variable to map `0` to `:a`, `1` to `:b` and `2` to `:c`.)
 
 The hash table helps us in retriving all instances which belong to that category in real time.
 
