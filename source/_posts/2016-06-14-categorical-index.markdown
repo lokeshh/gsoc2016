@@ -25,13 +25,13 @@ Daru has got now 4 types of indexes to index data:
 
 The new `Daru::CategoricalIndex` is helpful with data indexed with sparsely populated index with each unique index value as category.
 
-Please visit [this link](https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20Vector.ipynb) before to get a basic understanding of how indexing works in Daru::Vector and [this link](https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20DataFrame.ipynb) for Daru::DataFrame.
+Please visit [this link](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20Vector.ipynb) before to get a basic understanding of how indexing works in Daru::Vector and [this link](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20DataFrame.ipynb) for Daru::DataFrame.
 
 ## Example
 
 Let's see an example.
 
-(Alternatively you can also see this example in iRuby notebook [here](https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/examples/%5BExample%5D%20Categorical%20Index.ipynb))
+(Alternatively you can also see this example in iRuby notebook [here](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/examples/%5BExample%5D%20Categorical%20Index.ipynb))
 
 ```ruby
 require 'daru'
@@ -75,7 +75,7 @@ This a ideal place where we can use Categorical Index if we want to study about 
 Let's see all regions there are:
 
 ```ruby
-> df.index.cat
+> df.index.categories
   ["Eastern Mediterranean", "Europe", "Africa", "Americas", "Western Pacific", "South-East Asia"]
 ```
 
@@ -111,7 +111,7 @@ To efficiently store the index and make retrieval possible in constant time, `Da
 For example:
 
 ```ruby
-idx = Daru::CategoricalIndex.new [:a, :b, :a, :b, :C]
+idx = Daru::CategoricalIndex.new [:a, :b, :a, :b, :c]
 ```
 
 For `idx`, the hash table and array woul be:
