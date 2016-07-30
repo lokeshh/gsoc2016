@@ -138,8 +138,6 @@ For `dv`, the hash table and array would be:
 @array = [0, 1, 0, 1, 2]
 ```
 
-(Of course, we would need to have a variable to map `0` to `:a`, `1` to `:b` and `2` to `:c`.)
-
 The hash table helps us in retriving all instances which belong to that category in real time.
 
 Similary, the array helps us in retriving category of an instance in constant time.
