@@ -29,7 +29,7 @@ With the work of these two weeks, the formula language has the following feature
 - It supports `:` and `+`.
 - It supports inclusion/exclusion of contant or intercept term.
 
-And since I have followed the Patsy way of implementing the formula langauge it has an edge over R. Since, Patsy has a more accurate algorithm for deciding whether to use a full- or reduced-rank coding scheme for categorical factors, the same is inherited in Statsample and Statsample-GLM.
+And since I have followed the Patsy way of implementing the formula langauge it has an edge over R. Since, Patsy has a more accurate algorithm for deciding whether to use a full or reduced-rank coding scheme for categorical factors, the same is inherited in Statsample and Statsample-GLM.
 
 R sometimes can give under-specified model but this is not the case with our implementation. One example is expansion of `0 + a:x + a:b`, where `x` is numeric. More information about this can be found [here](https://patsy.readthedocs.io/en/stable/R-comparison.html).
 
@@ -78,7 +78,7 @@ Now with the introduction of formula langauge it has become a very easy task wit
 
 The above code not only enables predictions with caetgory data but also reflects the powerful formula langauge.
 
-[Here's](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/%5BExample%5D%20Formula%20language%20in%20Statsample-GLM.ipynb) a notebook that describes the use of formula language in Statsample-GLM using real life data.
+[Here's](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/examples/%5BExample%5D%20Formula%20language%20in%20Statsample-GLM.ipynb) a notebook that describes the use of formula language in Statsample-GLM using real life data.
 
 Lets have a look at Statsample now.
 
