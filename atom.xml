@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-24T02:54:08+00:00</updated>
+  <updated>2016-07-30T07:53:37+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -476,15 +476,15 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 
 <p><code>Daru::DateTimeIndex</code> is to have indexing with dates. Its powerful means to analyze time series data.</p>
 
-<p>The new <code>Daru::CategoricalIndex</code> is to have data indexed sparsely populated index with each unique index value as category.</p>
+<p>The new <code>Daru::CategoricalIndex</code> is helpful with data indexed with sparsely populated index with each unique index value as category.</p>
 
-<p>Please visit <a href="http://nbviewer.jupyter.org/github/lokeshh/sciruby-notebooks/blob/cat_index/Data%20Analysis/Indexing%20in%20Vector.ipynb">this link</a> before to get a basic understanding of how indexing works in Daru::Vector and <a href="nbviewer.jupyter.org/url/github.com/lokeshh/sciruby-notebooks/raw/cat_index/Data%20Analysis/Indexing%20in%20DataFrame.ipynb">this link</a> for Daru::DataFrame.</p>
+<p>Please visit <a href="https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20Vector.ipynb">this link</a> before to get a basic understanding of how indexing works in Daru::Vector and <a href="https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20DataFrame.ipynb">this link</a> for Daru::DataFrame.</p>
 
 <h2>Example</h2>
 
 <p>Let&rsquo;s see an example.</p>
 
-<p>(Alternatively you can also see this example in iRuby notebook <a href="http://nbviewer.jupyter.org/github/lokeshh/sciruby-notebooks/blob/cat_index/Data%20Analysis/%5BExample%5D%20Categorical%20Index.ipynb">here</a>)</p>
+<p>(Alternatively you can also see this example in iRuby notebook <a href="https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/examples/%5BExample%5D%20Categorical%20Index.ipynb">here</a>)</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -541,7 +541,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The data is about countries. The region column describes the region that country belongs to. A region can have more than one country.</p>
+<p>The data is about countries. The <code>region</code> column describes the region that country belongs to. A region can have more than one country.</p>
 
 <p>This a ideal place where we can use Categorical Index if we want to study about different regions.</p>
 
@@ -576,7 +576,7 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;Europe&#39;</span><span class="o">].</span><span class="n">vector</span><span class="o">[</span><span class="s1">&#39;LifeExpectancy&#39;</span><span class="o">].</span><span class="n">mean</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;Europe&#39;</span><span class="o">][</span><span class="s1">&#39;LifeExpectancy&#39;</span><span class="o">].</span><span class="n">mean</span>
 </span><span class='line'>  <span class="mi">76</span><span class="o">.</span><span class="mi">73584905660377</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -585,16 +585,20 @@ It doesn&rsquo;t consider the fact that most of the entries are same.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;South-East Asia&#39;</span><span class="o">].</span><span class="n">vector</span><span class="o">[</span><span class="s1">&#39;LifeExpectancy&#39;</span><span class="o">].</span><span class="n">min</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">row</span><span class="o">[</span><span class="s1">&#39;South-East Asia&#39;</span><span class="o">][</span><span class="s1">&#39;LifeExpectancy&#39;</span><span class="o">].</span><span class="n">min</span>
 </span><span class='line'>  <span class="mi">63</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Internal architecture</h2>
 
-<p>To efficiently store the index and make retrieval possible in constant time, <code>Daru::CategoricalIndex</code> uses two data structres-
-- Hash-table: To map each category to positional values. It is represented as <code>@cat_hash</code>.
-- Array: To map each position to a integer which represent a category.</p>
+<p>To efficiently store the index and make retrieval possible in constant time, <code>Daru::CategoricalIndex</code> uses two data structres-</p>
+
+<ul>
+<li>Hash-table: To map each category to positional values. It is represented as <code>@cat_hash</code>.</li>
+<li>Array: To map each position to a integer which represent a category.</li>
+</ul>
+
 
 <p>For example:</p>
 
