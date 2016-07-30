@@ -25,17 +25,17 @@ Now Daru also supports categorical data visualization using Nyaplot. It mainly h
 - In case of a category vector it allows to view the frequencies of categories in a bar graph.
 - And in case of dataframe containing a category vector, it allows to have scatter and line plots categorized by a category vector visualized by different shape, size and color.
 
-[Here](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Visualization.ipynb) are some examples of visualization of category data using Nyaplot in Daru.
+[Here](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Visualization.ipynb) are some examples of visualization of category data using Nyaplot in Daru.
 
 ## GnuplotRB
 
-GnuplotRB is another great library which has inbuilt support for Daru datastructres: `Daru::Vector` and `Daru::DataFrame`. Though it doesn't directly operate on vectors and dataframes but uses its own API.
+GnuplotRB is another great library which has inbuilt support for Daru datastructres: `Daru::Vector` and `Daru::DataFrame`. Though it doesn't directly operate on vectors and dataframes but uses its own API, it provides out of box support to plot `Daru::Vector` and `Data::DataFrame`.
 
 GnuplotRB strength lies in its offering of highly customized plots with yet a very simple to use API.
 
-No work was done regarding supporting categorical data visualization in GnuplotRB because it supports it out of the box owing to its easy to API that lets plot multiple plots with a variety of features.
+No work was done regarding supporting categorical data visualization in GnuplotRB because it supports it out of the box owing to its easy to use API that lets plot multiple plots with a variety of features.
 
-[Here's](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gnuplotrb.ipynb) a notebook demonstrating examples in the manner category data can be visualizaed using GnuplotRB.
+[Here's](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gnuplotrb.ipynb) a notebook demonstrating examples in the way category data can be visualizaed using GnuplotRB.
 
 ## Gruff
 
@@ -43,8 +43,8 @@ Gruff is a new plotting library that has just been added to Daru. [Gruff](https:
 
 These two notebooks show examples related to plotting of `Daru::Vector` and `Daru::DataFrame`:
 
-- [Plotting of Vector](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20Vector.ipynb)
-- [Plotting of DataFrame](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/Gruff%20DataFrame.ipynb)
+- [Plotting of Vector](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gruff%20Vector.ipynb)
+- [Plotting of DataFrame](http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gruff%20DataFrame.ipynb)
 
 ## Choose from different libraries
 
@@ -56,7 +56,7 @@ To easily move between these all these libraries, Daru has following functions:
 
 `Daru.plotting_library` can be used to set the current plotting library. For example, using `Daru.plotting_library = :gruff` one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.
 
-Inorder to change plotting library for only a specific vector, one can use `Daru::Vector#plotting_library`. For example, `dv.plotting_library = :gruff` will only change plotting library for vector `dv` and all other vector created will created using the library as set by `Daru.plotting_library`.
+Inorder to change plotting library for only a specific vector, one can use `Daru::Vector#plotting_library`. For example, `dv.plotting_library = :gruff` will only change plotting library for vector `dv` and all other vectors created will created using the library as set by `Daru.plotting_library`.
 
 The same goes for dataframes, one can use `df.plotting_library = :gruff` to set plotting library for data frame `df` to Gruff.
 
