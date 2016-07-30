@@ -78,6 +78,8 @@ Now with the introduction of formula langauge it has become a very easy task wit
 
 The above code not only enables predictions with caetgory data but also reflects the powerful formula langauge.
 
+[Here's](http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/%5BExample%5D%20Formula%20language%20in%20Statsample-GLM.ipynb) a notebook that describes the use of formula language in Statsample-GLM using real life data.
+
 Lets have a look at Statsample now.
 
 ## Statsample

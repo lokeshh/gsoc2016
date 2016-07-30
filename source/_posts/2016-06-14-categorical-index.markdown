@@ -23,15 +23,15 @@ Daru has got now 4 types of indexes to index data:
 
 `Daru::DateTimeIndex` is to have indexing with dates. Its powerful means to analyze time series data.
 
-The new `Daru::CategoricalIndex` is to have data indexed sparsely populated index with each unique index value as category.
+The new `Daru::CategoricalIndex` is helpful with data indexed with sparsely populated index with each unique index value as category.
 
-Please visit [this link](http://nbviewer.jupyter.org/github/lokeshh/sciruby-notebooks/blob/cat_index/Data%20Analysis/Indexing%20in%20Vector.ipynb) before to get a basic understanding of how indexing works in Daru::Vector and [this link](nbviewer.jupyter.org/url/github.com/lokeshh/sciruby-notebooks/raw/cat_index/Data%20Analysis/Indexing%20in%20DataFrame.ipynb) for Daru::DataFrame.
+Please visit [this link](https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20Vector.ipynb) before to get a basic understanding of how indexing works in Daru::Vector and [this link](https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/Indexing%20in%20DataFrame.ipynb) for Daru::DataFrame.
 
 ## Example
 
 Let's see an example.
 
-(Alternatively you can also see this example in iRuby notebook [here](http://nbviewer.jupyter.org/github/lokeshh/sciruby-notebooks/blob/cat_index/Data%20Analysis/%5BExample%5D%20Categorical%20Index.ipynb))
+(Alternatively you can also see this example in iRuby notebook [here](https://github.com/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/examples/%5BExample%5D%20Categorical%20Index.ipynb))
 
 ```ruby
 require 'daru'
@@ -62,7 +62,7 @@ df.vector[0..5]
           ...        ...        ...        ...        ...        ...        ...
 ```
 
-The data is about countries. The region column describes the region that country belongs to. A region can have more than one country.
+The data is about countries. The `region` column describes the region that country belongs to. A region can have more than one country.
 
 This a ideal place where we can use Categorical Index if we want to study about different regions.
 
@@ -89,14 +89,14 @@ Let's find out how many countries lie in Africa region.
 Finding out the mean life expectancy of europe is as easy as
 
 ```ruby
-> df.row['Europe'].vector['LifeExpectancy'].mean
+> df.row['Europe']['LifeExpectancy'].mean
   76.73584905660377
 ```
 
 Let's see the maximum life expectancy  of South-East Asia
 
 ```ruby
-> df.row['South-East Asia'].vector['LifeExpectancy'].min
+> df.row['South-East Asia']['LifeExpectancy'].min
   63
 ```
 
@@ -104,6 +104,7 @@ Let's see the maximum life expectancy  of South-East Asia
 
 
 To efficiently store the index and make retrieval possible in constant time, `Daru::CategoricalIndex` uses two data structres-
+
 - Hash-table: To map each category to positional values. It is represented as `@cat_hash`.
 - Array: To map each position to a integer which represent a category.
 
