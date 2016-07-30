@@ -116,7 +116,7 @@
 </ul>
 
 
-<p>And since I have followed the Patsy way of implementing the formula langauge it has an edge over R. Since, Patsy has a more accurate algorithm for deciding whether to use a full- or reduced-rank coding scheme for categorical factors, the same is inherited in Statsample and Statsample-GLM.</p>
+<p>And since I have followed the Patsy way of implementing the formula langauge it has an edge over R. Since, Patsy has a more accurate algorithm for deciding whether to use a full or reduced-rank coding scheme for categorical factors, the same is inherited in Statsample and Statsample-GLM.</p>
 
 <p>R sometimes can give under-specified model but this is not the case with our implementation. One example is expansion of <code>0 + a:x + a:b</code>, where <code>x</code> is numeric. More information about this can be found <a href="https://patsy.readthedocs.io/en/stable/R-comparison.html">here</a>.</p>
 
@@ -182,7 +182,7 @@
 
 <p>The above code not only enables predictions with caetgory data but also reflects the powerful formula langauge.</p>
 
-<p><a href="http://nbviewer.jupyter.org/github/lokeshh/cat_notebook/blob/master/%5BExample%5D%20Formula%20language%20in%20Statsample-GLM.ipynb">Here&rsquo;s</a> a notebook that describes the use of formula language in Statsample-GLM using real life data.</p>
+<p><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Categorical%20Data/examples/%5BExample%5D%20Formula%20language%20in%20Statsample-GLM.ipynb">Here&rsquo;s</a> a notebook that describes the use of formula language in Statsample-GLM using real life data.</p>
 
 <p>Lets have a look at Statsample now.</p>
 
@@ -300,7 +300,7 @@
 
 <p><code>Daru.plotting_library</code> can be used to set the current plotting library. For example, using <code>Daru.plotting_library = :gruff</code> one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.</p>
 
-<p>Inorder to change plotting library for only a specific vector, one can use <code>Daru::Vector#plotting_library</code>. For example, <code>dv.plotting_library = :gruff</code> will only change plotting library for vector <code>dv</code> and all other vectors created will created using the library as set by <code>Daru.plotting_library</code>.</p>
+<p>Inorder to change plotting library for only a specific vector, one can use <code>Daru::Vector#plotting_library</code>. For example, <code>dv.plotting_library = :gruff</code> will only change plotting library for vector <code>dv</code> and all other vectors created will created using library as set by <code>Daru.plotting_library</code>.</p>
 
 <p>The same goes for dataframes, one can use <code>df.plotting_library = :gruff</code> to set plotting library for data frame <code>df</code> to Gruff.</p>
 
