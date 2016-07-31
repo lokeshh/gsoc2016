@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-31T03:33:40+00:00</updated>
+  <updated>2016-07-31T03:35:24+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -40,7 +40,7 @@
 
 <p>This week brackets support has been added so one can form expression involving use of brackets. For example <code>(a+b):c</code> would evaluate to <code>a:c + b:c</code>.</p>
 
-<p>It supports any level of sophistication with symbols and brackets. For example <code>(a+b)*(c+d)</code> would give `a+b+c+d+a:c+a:d+b:c+b:d'.</p>
+<p>It supports any level of sophistication with symbols and brackets. For example <code>(a+b)*(c+d)</code> would give <code>a+b+c+d+a:c+a:d+b:c+b:d</code>.</p>
 
 <h2>Note</h2>
 
