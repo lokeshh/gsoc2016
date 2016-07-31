@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-31T11:13:00+00:00</updated>
+  <updated>2016-07-31T11:16:22+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -120,10 +120,10 @@
 </span><span class='line'><span class="c1"># Now lets obtain predictions from this model</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">reg</span><span class="o">.</span><span class="n">model</span> <span class="nb">test</span>
 </span><span class='line'><span class="o">&lt;</span><span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">&gt;</span>
-</span><span class='line'>  <span class="mi">0</span> <span class="mi">8</span><span class="o">.</span><span class="mi">407366176569727</span>
-</span><span class='line'>  <span class="mi">1</span> <span class="mi">7</span><span class="o">.</span><span class="mi">677528466297357</span>
-</span><span class='line'>  <span class="mi">2</span> <span class="mi">7</span><span class="o">.</span><span class="mi">681913508504028</span>
-</span><span class='line'>  <span class="mi">3</span> <span class="mi">7</span><span class="o">.</span><span class="mi">646833170850658</span>
+</span><span class='line'><span class="mi">0</span> <span class="mi">8</span><span class="o">.</span><span class="mi">407366176569727</span>
+</span><span class='line'><span class="mi">1</span> <span class="mi">7</span><span class="o">.</span><span class="mi">677528466297357</span>
+</span><span class='line'><span class="mi">2</span> <span class="mi">7</span><span class="o">.</span><span class="mi">681913508504028</span>
+</span><span class='line'><span class="mi">3</span> <span class="mi">7</span><span class="o">.</span><span class="mi">646833170850658</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
