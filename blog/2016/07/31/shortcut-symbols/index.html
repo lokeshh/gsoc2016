@@ -121,6 +121,125 @@
 <h2>Formula Language in Statsample</h2>
 
 <p>Earlier, the plan was to implement the formula language also in Statsample but because Statsample which supports just linear regression is also supported by name Normal Regression in Statsample-GLM, we are planning to not implement formula language in Statsample but rather remove the linear regression support from Statsample if it doesn&rsquo;t offer any advantage to Normal Regression in Statsample-GLM. For info, see <a href="https://github.com/SciRuby/statsample/issues/53">here</a>.</p>
+
+<h2>Example using shortcut symbols</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">DataFrame</span><span class="o">.</span><span class="n">from_csv</span> <span class="s1">&#39;spec/data/df.csv&#39;</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(14x6)&gt;</span>
+</span><span class='line'>             <span class="n">y</span>      <span class="n">a</span>      <span class="n">b</span>      <span class="n">c</span>      <span class="n">d</span>      <span class="n">e</span>
+</span><span class='line'>      <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">6</span>   <span class="mi">62</span><span class="o">.</span><span class="mi">1</span>     <span class="n">no</span> <span class="n">female</span>      <span class="n">A</span>
+</span><span class='line'>      <span class="mi">1</span>      <span class="mi">1</span>     <span class="mi">18</span>   <span class="mi">34</span><span class="o">.</span><span class="mi">7</span>    <span class="n">yes</span>   <span class="n">male</span>      <span class="n">B</span>
+</span><span class='line'>      <span class="mi">2</span>      <span class="mi">1</span>      <span class="mi">6</span>   <span class="mi">29</span><span class="o">.</span><span class="mi">7</span>     <span class="n">no</span> <span class="n">female</span>      <span class="n">C</span>
+</span><span class='line'>      <span class="mi">3</span>      <span class="mi">0</span>      <span class="mi">4</span>     <span class="mi">71</span>     <span class="n">no</span>   <span class="n">male</span>      <span class="n">C</span>
+</span><span class='line'>      <span class="mi">4</span>      <span class="mi">1</span>      <span class="mi">5</span>   <span class="mi">36</span><span class="o">.</span><span class="mi">9</span>    <span class="n">yes</span>   <span class="n">male</span>      <span class="n">B</span>
+</span><span class='line'>      <span class="mi">5</span>      <span class="mi">0</span>     <span class="mi">11</span>   <span class="mi">58</span><span class="o">.</span><span class="mi">7</span>     <span class="n">no</span> <span class="n">female</span>      <span class="n">B</span>
+</span><span class='line'>      <span class="mi">6</span>      <span class="mi">0</span>      <span class="mi">8</span>   <span class="mi">63</span><span class="o">.</span><span class="mi">3</span>     <span class="n">no</span>   <span class="n">male</span>      <span class="n">B</span>
+</span><span class='line'>      <span class="mi">7</span>      <span class="mi">1</span>     <span class="mi">21</span>   <span class="mi">20</span><span class="o">.</span><span class="mi">4</span>    <span class="n">yes</span>   <span class="n">male</span>      <span class="n">A</span>
+</span><span class='line'>      <span class="mi">8</span>      <span class="mi">1</span>      <span class="mi">2</span>   <span class="mi">20</span><span class="o">.</span><span class="mi">5</span>    <span class="n">yes</span>   <span class="n">male</span>      <span class="n">C</span>
+</span><span class='line'>      <span class="mi">9</span>      <span class="mi">0</span>     <span class="mi">11</span>   <span class="mi">59</span><span class="o">.</span><span class="mi">2</span>     <span class="n">no</span>   <span class="n">male</span>      <span class="n">B</span>
+</span><span class='line'>     <span class="mi">10</span>      <span class="mi">0</span>      <span class="mi">1</span>   <span class="mi">76</span><span class="o">.</span><span class="mi">4</span>    <span class="n">yes</span> <span class="n">female</span>      <span class="n">A</span>
+</span><span class='line'>     <span class="mi">11</span>      <span class="mi">0</span>      <span class="mi">8</span>   <span class="mi">71</span><span class="o">.</span><span class="mi">7</span>     <span class="n">no</span> <span class="n">female</span>      <span class="n">B</span>
+</span><span class='line'>     <span class="mi">12</span>      <span class="mi">1</span>      <span class="mi">2</span>   <span class="mi">77</span><span class="o">.</span><span class="mi">5</span>     <span class="n">no</span>   <span class="n">male</span>      <span class="n">C</span>
+</span><span class='line'>     <span class="mi">13</span>      <span class="mi">1</span>      <span class="mi">3</span>   <span class="mi">31</span><span class="o">.</span><span class="mi">1</span>     <span class="n">no</span>   <span class="n">male</span>      <span class="n">B</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">to_category</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">first</span> <span class="mi">10</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="nb">test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">last</span> <span class="mi">4</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">reg</span> <span class="o">=</span> <span class="no">Statsample</span><span class="o">::</span><span class="no">GLM</span><span class="o">::</span><span class="no">Regression</span><span class="o">.</span><span class="n">new</span> <span class="s1">&#39;a~b*c&#39;</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="ss">:normal</span><span class="p">,</span> <span class="ss">algorithm</span><span class="p">:</span> <span class="ss">:mle</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">reg</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">coefficients</span> <span class="ss">:hash</span>
+</span><span class='line'><span class="p">{</span><span class="ss">:c_yes</span><span class="o">=&gt;</span><span class="mi">5</span><span class="o">.</span><span class="mi">678447231711081</span><span class="p">,</span>
+</span><span class='line'> <span class="ss">:b</span><span class="o">=&gt;</span><span class="mi">0</span><span class="o">.</span><span class="mo">00075604175</span><span class="mi">97709064</span><span class="p">,</span>
+</span><span class='line'> <span class="ss">:&quot;c_yes:b&quot;</span><span class="o">=&gt;-</span><span class="mi">0</span><span class="o">.</span><span class="mo">064</span><span class="mi">81888635745593</span><span class="p">,</span>
+</span><span class='line'> <span class="ss">:constant</span><span class="o">=&gt;</span><span class="mi">7</span><span class="o">.</span><span class="mi">6233202721217825</span><span class="p">}</span>
+</span><span class='line'><span class="c1"># Now lets obtain predictions from this model</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">reg</span><span class="o">.</span><span class="n">model</span> <span class="nb">test</span>
+</span><span class='line'><span class="o">&lt;</span><span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="mi">0</span> <span class="mi">8</span><span class="o">.</span><span class="mi">407366176569727</span>
+</span><span class='line'>  <span class="mi">1</span> <span class="mi">7</span><span class="o">.</span><span class="mi">677528466297357</span>
+</span><span class='line'>  <span class="mi">2</span> <span class="mi">7</span><span class="o">.</span><span class="mi">681913508504028</span>
+</span><span class='line'>  <span class="mi">3</span> <span class="mi">7</span><span class="o">.</span><span class="mi">646833170850658</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Internal Structure of Formula Language</h2>
+
+<p>There are three classes by which formula language works:</p>
+
+<ul>
+<li><code>FormulaWrapper</code></li>
+<li><code>Formula</code></li>
+<li><code>Token</code></li>
+</ul>
+
+
+<p>When creation of a new model is invoked by <code>Statsample::GLM::Regression#new</code>, <code>FormulaWrapper</code> is first called.</p>
+
+<p><code>FormulaWrapper</code> class does the necessary preprocessing. It does mainly two things:</p>
+
+<ul>
+<li>Apply the shortcut symbols and reduce the expression to only containing <code>:</code> and <code>+</code></li>
+<li>After reducing to simple expression containing only <code>:</code> and <code>+</code>, it groups terms based on the numerical terms they are interacting with.</li>
+</ul>
+
+
+<p>After <code>FormulaWrapper</code> has form groups, it processes each of these groups using the <code>Formula</code> class.</p>
+
+<p>The <code>Formula</code> class takes each group and form tokens which do not overlap, that is if they are converted to dataframe they won&rsquo;t contain redundancy in that dataframe.</p>
+
+<p>The <code>Token</code> class stores the column names and can expand these columns when fed a dataframe.</p>
+
+<p>Sounds confusing?</p>
+
+<p>Lets try an example:</p>
+
+<p>Lets say our expression is <code>x*a + b*c</code>, where <code>x</code> is numerical vector and <code>a</code>, <code>b</code> and <code>c</code> are categorical.</p>
+
+<ol>
+<li>First it will converted to simple expression by <code>FormulaWrapper</code>. It will be simplified as <code>1+x+a+x:a+b+c+b:c</code>. Notice shortcut symbols have disappeared and only <code>+</code> and <code>:</code> are remaining.</li>
+<li>Now <code>1+x+a+x:a+b+c+b:c</code> is grouped into two groups [<code>1</code>, <code>a</code>, <code>b</code>, <code>c</code>, <code>b:c</code>] and [<code>1</code>, <code>a</code>]. The first group has the common numerical interaction terms as <code>1</code>, while the second group has common numerical interaction terms as <code>x</code>.</li>
+<li>Now both the groups will be processed by <code>Formula</code> to produce dataframe with full rank.</li>
+<li>First group will be parsed to <code>1+a(-)+b(-)+c(-)+b(-):c(-)</code> by <code>Formula</code> class. <code>a(-)</code> implies that vector <code>a</code> is contrast coded to reduced rank, while <code>a</code> implies its coded to full rank.</li>
+<li>Second group will be parsed to <code>x + x:a(-)</code>.</li>
+<li>In the end these terms are combined and resultant parsed expression is the sum of the above two expressions, i.e. <code>1+a(-)+b(-)+c(-)+b(-):c(-)+x+x:a(-)</code>.</li>
+<li>Then are expanded into dataframes by <code>Token</code> class and these dataframes are concatted to form the final dataframe for the given expression.</li>
+</ol>
+
+
+<h2>Conclusion</h2>
+
+<p>We saw the overview of how formula language works inside <code>Statsample::GLM</code> and shortcut symbols with brackets has made the usage much more convenient and powerful.</p>
 </div>
 
 
