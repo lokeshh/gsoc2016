@@ -9,7 +9,7 @@
   <meta name="author" content="Lokesh Sharma">
 
   
-  <meta name="description" content="After the end of 6 weeks we have category data support in Daru. Now in the coming weeks we will be adding support for category data in Statsample and &hellip;">
+  <meta name="description" content="Shortcut Symbols [Week 9-10] With the work done in Week 9 and 10, Statsample-GLM now supports shortcut symbols in Formula Language. With this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,73 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/07/31/shortcut-symbols/">Shortcut Symbols</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-07-31T03:29:37+00:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>3:29 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Shortcut Symbols [Week 9-10]</p>
+
+<p>With the work done in Week 9 and 10, Statsample-GLM now supports shortcut symbols in Formula Language.</p>
+
+<p>With this addition, the regression has become more <a href="">R/Patsy like</a> and more convenient.</p>
+
+<h2>Symbols Added</h2>
+
+<p>There are two shortcut symbols now being supported:</p>
+
+<ul>
+<li><code>*</code></li>
+<li><code>/</code></li>
+</ul>
+
+
+<p><code>a*b</code> is shortcut for <code>a+b+a:b</code>. This is commonly used within regression models.</p>
+
+<p><code>a/b</code> is shortcut for <code>a+a:b</code>. Its quite useful while dealing with nested categorical variables. <code>a/b</code> makes sense when <code>b</code> is nested inside <code>a</code>.</p>
+
+<h2>Brackets</h2>
+
+<p>This week brackets support has been added so one can form expression involving use of brackets. For example <code>(a+b):c</code> would evaluate to <code>a:c + b:c</code>.</p>
+
+<p>It supports any level of sophistication with symbols and brackets. For example <code>(a+b)*(c+d)</code> would give `a+b+c+d+a:c+a:d+b:c+b:d'.</p>
+
+<h2>Note</h2>
+
+<p>Although there are certain limitations to the current formula language:</p>
+
+<ol>
+<li>Since more than 2-way interactions are not supported yet, formula like <code>a*b*c</code> wouldn&rsquo;t work.</li>
+<li>There&rsquo;s not a mechanism to deal with cases such as <code>a*a</code>.</li>
+</ol>
+
+
+<h2>Formula Language in Statsample</h2>
+
+<p>Earlier, the plan was to implement the formula language also in Statsample but because Statsample which supports just linear regression is also supported by name Normal Regression in Statsample-GLM, we are planning to not implement formula language in Statsample but rather remove the linear regression support from Statsample if it doesn&rsquo;t offer any advantage to Normal Regression in Statsample-GLM. For info, see <a href="https://github.com/SciRuby/statsample/issues/53">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -775,6 +842,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/07/31/shortcut-symbols/">Shortcut Symbols</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/07/19/formula-language-week7-8/">Formula Language Implementation [Week 7-8]</a>

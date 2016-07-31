@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-07-30T13:52:42+00:00</updated>
+  <updated>2016-07-31T03:32:28+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Shortcut Symbols]]></title>
+    <link href="http://lokeshh.github.io/blog/2016/07/31/shortcut-symbols/"/>
+    <updated>2016-07-31T03:29:37+00:00</updated>
+    <id>http://lokeshh.github.io/blog/2016/07/31/shortcut-symbols</id>
+    <content type="html"><![CDATA[<p>Shortcut Symbols [Week 9-10]</p>
+
+<p>With the work done in Week 9 and 10, Statsample-GLM now supports shortcut symbols in Formula Language.</p>
+
+<p>With this addition, the regression has become more <a href="">R/Patsy like</a> and more convenient.</p>
+
+<h2>Symbols Added</h2>
+
+<p>There are two shortcut symbols now being supported:</p>
+
+<ul>
+<li><code>*</code></li>
+<li><code>/</code></li>
+</ul>
+
+
+<p><code>a*b</code> is shortcut for <code>a+b+a:b</code>. This is commonly used within regression models.</p>
+
+<p><code>a/b</code> is shortcut for <code>a+a:b</code>. Its quite useful while dealing with nested categorical variables. <code>a/b</code> makes sense when <code>b</code> is nested inside <code>a</code>.</p>
+
+<h2>Brackets</h2>
+
+<p>This week brackets support has been added so one can form expression involving use of brackets. For example <code>(a+b):c</code> would evaluate to <code>a:c + b:c</code>.</p>
+
+<p>It supports any level of sophistication with symbols and brackets. For example <code>(a+b)*(c+d)</code> would give `a+b+c+d+a:c+a:d+b:c+b:d'.</p>
+
+<h2>Note</h2>
+
+<p>Although there are certain limitations to the current formula language:</p>
+
+<ol>
+<li>Since more than 2-way interactions are not supported yet, formula like <code>a*b*c</code> wouldn&rsquo;t work.</li>
+<li>There&rsquo;s not a mechanism to deal with cases such as <code>a*a</code>.</li>
+</ol>
+
+
+<h2>Formula Language in Statsample</h2>
+
+<p>Earlier, the plan was to implement the formula language also in Statsample but because Statsample which supports just linear regression is also supported by name Normal Regression in Statsample-GLM, we are planning to not implement formula language in Statsample but rather remove the linear regression support from Statsample if it doesn&rsquo;t offer any advantage to Normal Regression in Statsample-GLM. For info, see <a href="https://github.com/SciRuby/statsample/issues/53">here</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Formula Language Implementation [Week 7-8]]]></title>
