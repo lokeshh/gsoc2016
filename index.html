@@ -828,7 +828,7 @@
 </span><span class='line'><span class="n">content</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/WHO.csv&#39;</span><span class="p">)</span>
 </span><span class='line'><span class="n">df</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">DataFrame</span><span class="o">.</span><span class="n">from_csv</span> <span class="n">content</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">df</span><span class="o">.</span><span class="n">vector</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">5</span><span class="o">]</span>
+</span><span class='line'><span class="n">df</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">5</span><span class="o">]</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="o">=&gt;</span> <span class="c1">#&lt;Daru::DataFrame(194x6)&gt;</span>
 </span><span class='line'>                 <span class="no">Country</span>     <span class="no">Region</span> <span class="no">Population</span>    <span class="no">Under15</span>     <span class="no">Over60</span> <span class="no">FertilityR</span>
@@ -858,7 +858,7 @@
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">CategoricalIndex</span><span class="o">.</span><span class="n">new</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">vector</span><span class="o">[</span><span class="s1">&#39;Region&#39;</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">CategoricalIndex</span><span class="o">.</span><span class="n">new</span> <span class="p">(</span><span class="n">df</span><span class="o">[</span><span class="s1">&#39;Region&#39;</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="c1">#&lt;Daru::CategoricalIndex(194): {Eastern Mediterranean, Europe, Africa, Europe, Africa, Americas, Americas, Europe, Western Pacific, Europe, Europe, Americas, Eastern Mediterranean, South-East Asia, Americas, Europe, Europe, Americas, Africa, South-East Asia ... Africa}&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
