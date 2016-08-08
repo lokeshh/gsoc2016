@@ -40,7 +40,7 @@ require 'open-uri'
 content = open('https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/WHO.csv')
 df = Daru::DataFrame.from_csv content
 
-df.vector[0..5]
+df[0..5]
 
   => #<Daru::DataFrame(194x6)>
                  Country     Region Population    Under15     Over60 FertilityR
@@ -67,7 +67,7 @@ The data is about countries. The `region` column describes the region that count
 This a ideal place where we can use Categorical Index if we want to study about different regions.
 
 ```ruby
-> df.index = Daru::CategoricalIndex.new (df.vector['Region']).to_a
+> df.index = Daru::CategoricalIndex.new (df['Region']).to_a
   
   #<Daru::CategoricalIndex(194): {Eastern Mediterranean, Europe, Africa, Europe, Africa, Americas, Americas, Europe, Western Pacific, Europe, Europe, Americas, Eastern Mediterranean, South-East Asia, Americas, Europe, Europe, Americas, Africa, South-East Asia ... Africa}>
 ```
