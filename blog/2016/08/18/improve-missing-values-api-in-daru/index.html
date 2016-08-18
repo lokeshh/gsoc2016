@@ -90,10 +90,10 @@
 
 <p>The following were the problems:</p>
 
-<ol>
+<ul>
 <li>Updates like <code>#[]=</code>, <code>#set_at</code> were slow.</li>
 <li>Any value could be set as missing values, which made the missing checks hard.</li>
-</ol>
+</ul>
 
 
 <p>Now, Daru follows a simple approach of only considering <code>nil</code> and <code>Float::NAN</code> as the missing values. Although one loses the flexibility of assigning an arbitrary value as missing but it has greatly simplified many things and also improvement in performance is very significant. Further, one can simply uses <code>#replace</code> now to change the values which he/she wants to treat as missing to <code>nil</code>.</p>
