@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-18T10:54:51+00:00</updated>
+  <updated>2016-08-18T10:56:59+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -146,7 +146,7 @@
 <h2>Conclusion</h2>
 
 <ul>
-<li>As you can notice the performance of Daru updating methods have undergone a major improvement and the its effects will be far reaching from improving other things in Daru and imporoving the performance in Statsample and Statsample-GLM.</li>
+<li>As you can notice the performance of Daru updating methods have undergone a major improvement and the its effects will be far reaching from improving other things in Daru to imporoving the performance in Statsample and Statsample-GLM.</li>
 <li>During the way I learned how to use tools like <code>ruby-prof</code> to benchmark the code and understand where&rsquo;s the performance is lagging.</li>
 <li>I noticed that methods like <code>#[]</code> are proving to be bottleneck and there lie chances of their improvement.</li>
 <li>I&rsquo;m thankful to [Victor]<a href="https://github.com/zverok">https://github.com/zverok</a>) for suggestiong this change in Daru, provind me with appropriate method names and helping me all the way to implement it.</li>
