@@ -6,17 +6,17 @@ comments: true
 categories: 
 ---
 
-The end of GSoC is almost there. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some other important issues.
+The end of GSoC is near. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some other important issues.
 
 During these last two weeks I solved some issues in Daru and mainly worked on [this issue](https://github.com/v0dro/daru/issues/137) regarding how missing values are handled in Daru.
 
-The following were the problems:
+The following were the shortcomings:
 
-1. Updates like `#[]=`, `#set_at` were slow.
-2. Any value could be set as missing values, which made the missing checks hard.
+- Update operations like `#[]=`, `#set_at` were slow.
+- Any value could be set as missing values, which made the checks for missing values somewhat hard.
 
 
-Now, Daru follows a simple approach of only considering `nil` and `Float::NAN` as the missing values. Although one loses the flexibility of assigning an arbitrary value as missing but it has greatly simplified many things and also improvement in performance is very significant. Further, one can simply uses `#replace` now to change the values which he/she wants to treat as missing to `nil`.
+Now, Daru follows a simple approach of only considering `nil` and `Float::NAN` as the missing values. Although one loses the flexibility of assigning an arbitrary value as missing but it has greatly simplified many things and also improvement in performance is significant. Further, one can simply uses `#replace` now to change the values which he/she wants to treat as missing to `nil`.
 
 In addition to that, the updates have become blazingly fast without compromising the caching of missing values. I accomplished by the following strategy:
 
@@ -92,6 +92,7 @@ and other methods `#has_missing_data?`, `#n_valid` have been deprecated.
 
 ## Conclusion
 
-- As you can notice the performance of Daru updating methods have undergone a major improvement and the its effects will be far reaching from improving other things in Daru and imporoving the performance in Statsample and Statsample-GLM.
+- As you can notice the performance of Daru updating methods have undergone a major improvement and the its effects will be far reaching from improving other things in Daru to imporoving the performance in Statsample and Statsample-GLM.
 - During the way I learned how to use tools like `ruby-prof` to benchmark the code and understand where's the performance is lagging. 
 - I noticed that methods like `#[]` are proving to be bottleneck and there lie chances of their improvement.
+- Thanks to [Victor](https://github.com/zverok) for suggestiong this change in Daru, providing with good API and helping me all the way to implement it.
