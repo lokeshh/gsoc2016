@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-18T10:46:04+00:00</updated>
+  <updated>2016-08-18T10:51:11+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -18,15 +18,15 @@
     <link href="http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru/"/>
     <updated>2016-08-18T09:22:15+00:00</updated>
     <id>http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru</id>
-    <content type="html"><![CDATA[<p>The end of GSoC is almost there. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some other important issues.</p>
+    <content type="html"><![CDATA[<p>The end of GSoC is near. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some other important issues.</p>
 
 <p>During these last two weeks I solved some issues in Daru and mainly worked on <a href="https://github.com/v0dro/daru/issues/137">this issue</a> regarding how missing values are handled in Daru.</p>
 
 <p>The following were the problems:</p>
 
 <ul>
-<li>Updates like <code>#[]=</code>, <code>#set_at</code> were slow.</li>
-<li>Any value could be set as missing values, which made the missing checks hard.</li>
+<li>Update operations like <code>#[]=</code>, <code>#set_at</code> were slow.</li>
+<li>Any value could be set as missing values, which made the checks for missing values somewhat hard.</li>
 </ul>
 
 
@@ -149,6 +149,7 @@
 <li>As you can notice the performance of Daru updating methods have undergone a major improvement and the its effects will be far reaching from improving other things in Daru and imporoving the performance in Statsample and Statsample-GLM.</li>
 <li>During the way I learned how to use tools like <code>ruby-prof</code> to benchmark the code and understand where&rsquo;s the performance is lagging.</li>
 <li>I noticed that methods like <code>#[]</code> are proving to be bottleneck and there lie chances of their improvement.</li>
+<li>I&rsquo;m thankful to [Victor]<a href="https://github.com/zverok">https://github.com/zverok</a>) for suggestiong this change in Daru, provind me with appropriate method names and helping me all the way to implement it.</li>
 </ul>
 
 ]]></content>
