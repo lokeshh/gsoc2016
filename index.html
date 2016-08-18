@@ -9,7 +9,7 @@
   <meta name="author" content="Lokesh Sharma">
 
   
-  <meta name="description" content="With the work done in Week 9 and 10, Statsample-GLM now supports shortcut symbols in Formula Language. With this addition, the regression has become &hellip;">
+  <meta name="description" content="The end of GSoC is almost there. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,167 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/18/improve-missing-values-api-in-daru/">Improve Missing Values API in Daru [Week 11-12]</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-18T09:22:15+00:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:22 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>The end of GSoC is almost there. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some other important issues.</p>
+
+<p>During these last two weeks I solved some issues in Daru and mainly worked on <a href="https://github.com/v0dro/daru/issues/137">this issue</a> regarding how missing values are handled in Daru.</p>
+
+<p>The following were the problems:</p>
+
+<ol>
+<li>Updates like <code>#[]=</code>, <code>#set_at</code> were slow.</li>
+<li>Any value could be set as missing values, which made the missing checks hard.</li>
+</ol>
+
+
+<p>Now, Daru follows a simple approach of only considering <code>nil</code> and <code>Float::NAN</code> as the missing values. Although one loses the flexibility of assigning an arbitrary value as missing but it has greatly simplified many things and also improvement in performance is very significant. Further, one can simply uses <code>#replace</code> now to change the values which he/she wants to treat as missing to <code>nil</code>.</p>
+
+<p>In addition to that, the updates have become blazingly fast without compromising the caching of missing values. I accomplished by the following strategy:</p>
+
+<ul>
+<li>During the updates the cache which stores the positions of <code>nil</code> and <code>Float::NAN</code> gets outdated and doesn&rsquo;t get updated until we require those positions.</li>
+<li>When missing positions of either <code>nil</code> or <code>Float::NAN</code> are required by any of the missing value method, those are returned if cache isn&rsquo;t outdated and if the cache is outdated then its rebuilt.</li>
+</ul>
+
+
+<p>This way one has best of both worlds. The updates remain fast and also the caching of <code>nil</code> and <code>Float::NAN</code> is maintained.</p>
+
+<p>I ran the following benchmarks:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;benchmark&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
+</span><span class='line'><span class="n">dv</span> <span class="o">=</span> <span class="no">Daru</span><span class="o">::</span><span class="no">Vector</span><span class="o">.</span><span class="n">new</span> <span class="mi">1</span><span class="o">.</span><span class="n">.n</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Benchmark</span><span class="o">.</span><span class="n">bm</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">x</span><span class="o">.</span><span class="n">report</span> <span class="k">do</span>
+</span><span class='line'>    <span class="mi">100</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="n">dv</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="kp">nil</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">x</span><span class="o">.</span><span class="n">report</span> <span class="k">do</span>
+</span><span class='line'>    <span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>      <span class="n">dv</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="kp">nil</span>
+</span><span class='line'>      <span class="c1"># Need to be replaced with only_valid when running for before</span>
+</span><span class='line'>      <span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="n">dv</span><span class="o">.</span><span class="n">reject_values</span> <span class="kp">nil</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And these are the results before and after:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Before</span>
+</span><span class='line'>       <span class="n">user</span>     <span class="nb">system</span>      <span class="n">total</span>        <span class="n">real</span>
+</span><span class='line'>   <span class="mi">1</span><span class="o">.</span><span class="mi">840000</span>   <span class="mi">0</span><span class="o">.</span><span class="mo">000000</span>   <span class="mi">1</span><span class="o">.</span><span class="mi">840000</span> <span class="p">(</span>  <span class="mi">1</span><span class="o">.</span><span class="mi">840055</span><span class="p">)</span>
+</span><span class='line'>  <span class="mi">15</span><span class="o">.</span><span class="mi">080000</span>   <span class="mi">0</span><span class="o">.</span><span class="mo">060000</span>  <span class="mi">15</span><span class="o">.</span><span class="mi">140000</span> <span class="p">(</span> <span class="mi">15</span><span class="o">.</span><span class="mi">462978</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># After</span>
+</span><span class='line'>       <span class="n">user</span>     <span class="nb">system</span>      <span class="n">total</span>        <span class="n">real</span>
+</span><span class='line'>   <span class="mi">0</span><span class="o">.</span><span class="mo">000000</span>   <span class="mi">0</span><span class="o">.</span><span class="mo">000000</span>   <span class="mi">0</span><span class="o">.</span><span class="mo">000000</span> <span class="p">(</span>  <span class="mi">0</span><span class="o">.</span><span class="mo">00030</span><span class="mi">8</span><span class="p">)</span>
+</span><span class='line'>  <span class="mi">11</span><span class="o">.</span><span class="mi">120000</span>   <span class="mi">0</span><span class="o">.</span><span class="mi">160000</span>  <span class="mi">11</span><span class="o">.</span><span class="mi">280000</span> <span class="p">(</span> <span class="mi">11</span><span class="o">.</span><span class="mi">385459</span><span class="p">)</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&rsquo;s the summary of the old and new API regarding handling of missing values:</p>
+
+<p>Methods added in Daru::Vector (and category):</p>
+
+<ul>
+<li>reject_values</li>
+<li>include_values?</li>
+<li>indexes</li>
+<li>count_values</li>
+<li>replace values</li>
+</ul>
+
+
+<p>Methods added in Daru::DataFrame:</p>
+
+<ul>
+<li>reject_values</li>
+<li>include_values?</li>
+<li>replace_values</li>
+</ul>
+
+
+<p>Methods removed in Daru::Vector:</p>
+
+<ul>
+<li>missing_values</li>
+<li>missing_values=</li>
+<li>update</li>
+<li>exists?</li>
+<li>set_missing_positions</li>
+</ul>
+
+
+<p>and other methods <code>#has_missing_data?</code>, <code>#n_valid</code> have been deprecated.</p>
+
+<h2>Conclusion</h2>
+
+<ul>
+<li>As you can notice the performance of Daru updating methods have undergone a major improvement and the its effects will be far reaching from improving other things in Daru and imporoving the performance in Statsample and Statsample-GLM.</li>
+<li>During the way I learned how to use tools like <code>ruby-prof</code> to benchmark the code and understand where&rsquo;s the performance is lagging.</li>
+<li>I noticed that methods like <code>#[]</code> are proving to be bottleneck and there lie chances of their improvement.</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -961,6 +1122,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/08/18/improve-missing-values-api-in-daru/">Improve Missing Values API in Daru [Week 11-12]</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2016/07/31/shortcut-symbols/">Shortcut Symbols [Week 9-10]</a>
       </li>
     
@@ -974,10 +1139,6 @@
     
       <li class="post">
         <a href="/blog/2016/06/21/categorical-data/">Categorical Data [Week 3-4]</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/06/14/categorical-index/">Categorical Index [Week 1-2]</a>
       </li>
     
   </ul>
