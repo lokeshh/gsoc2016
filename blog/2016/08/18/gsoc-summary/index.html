@@ -9,7 +9,7 @@
   <meta name="author" content="Lokesh Sharma">
 
   
-  <meta name="description" content="Summary During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language. PUll Requests The &hellip;">
+  <meta name="description" content="Summary During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language. Pull Requests The &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,7 +88,7 @@
 
 <p>During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language.</p>
 
-<h2>PUll Requests</h2>
+<h2>Pull Requests</h2>
 
 <p>The following are the main pull requests regarding my project:</p>
 
@@ -120,6 +120,51 @@
 
 
 <p><a href="https://github.com/v0dro/daru/pulls?utf8=%E2%9C%93&amp;q=is%3Apr%20author%3Alokeshh">Here</a> are other pull requests not necessary related to the project.</p>
+
+<p>Now I will talk in detail about the work in these pull requests:</p>
+
+<h3><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a></h3>
+
+<p>This was my major work during the weeks from 1 to 6th week.</p>
+
+<p>You can find every detail of my work like what exactly I implemented, why I made certain decisions and how to use it in the following posts:</p>
+
+<ul>
+<li><a href="http://lokeshh.github.io/blog/2016/06/14/categorical-index/">Categorical Index</a></li>
+<li><a href="http://lokeshh.github.io/blog/2016/06/21/categorical-data/">Categorical Data</a></li>
+<li><a href="http://lokeshh.github.io/blog/2016/07/02/visualization/">Visualization</a></li>
+</ul>
+
+
+<p>This PR has been merged.</p>
+
+<h3><a href="https://github.com/SciRuby/statsample-glm/pull/31">Statsample-GLM#31</a></h3>
+
+<p>The following posts discusses in detail my work:</p>
+
+<ul>
+<li><a href="http://lokeshh.github.io/blog/2016/07/19/formula-language-week7-8/">Formula Language Implementation and Categorical Data Support in Regression</a></li>
+<li><a href="http://lokeshh.github.io/blog/2016/07/31/shortcut-symbols/">Shorcut Symbols</a></li>
+</ul>
+
+
+<p>This PR is about to get merged. Just waiting for the new Daru to be released.</p>
+
+<h3><a href="https://github.com/SciRuby/statsample/pull/51">Statsample#51</a></h3>
+
+<p>This pull request is currently unmerged. It implements the same functionality as the above pull request does for Statsample-GLM.</p>
+
+<p>Earlier our plan was to implement support for categorical data in both Statsample and Stastsample-GLM but because linear regression is also present in Statsample-GLM. And since linear regression in Statsample is better in terms of performance as compared to Statsample-GLM we are looking to remove the linear regression from Statsample and move it to Statsample-GLM. More information is <a href="https://github.com/SciRuby/statsample/issues/53">here</a>.</p>
+
+<p>So, we will doing one of these two things:</p>
+
+<ul>
+<li>Merge this pull request and do not remove linear regression from Statsample.</li>
+<li>Or move linear regression from Statsample to Statsample-GLM.</li>
+</ul>
+
+
+<h3><a href="https://github.com/v0dro/daru/pull/208/">Daru#208</a></h3>
 </div>
 
 
