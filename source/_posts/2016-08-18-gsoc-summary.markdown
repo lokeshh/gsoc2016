@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GSoC Summary"
+title: "Work done this GSoC"
 date: 2016-08-18 17:08:46 +0000
 comments: true
 categories: 
@@ -8,18 +8,30 @@ categories:
 
 ## Summary
 
-During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language.
+It was a great summer. My project was to add categorical data support in Daru and Statsample.
+
+[This](https://summerofcode.withgoogle.com/projects/#6288543399804928) is my GSoC project page.
+
+I'm happy to say that I implemented all of my goals and achived much more.
+
+To conclude I implemented the following this summer:
+
+- Support for categorical data in Daru
+- Support to visualize categorical data using Nyaplot, GnuplotRB and Gruff
+- Support for categorical data with formula language in Statsample-GLM
 
 
-## Pull Requests
+## The code
 The following are the main pull requests regarding my project:
 
-- [Daru#134](https://github.com/v0dro/daru/pull/134) In this I implemented the following:
+- [Daru#134](https://github.com/v0dro/daru/pull/134) 
+  
+  It does the following:
     - `CategoricalIndex` class for handling categorical index
     - `Category` module to add categorical data support in `Daru::Vector` and `Daru::DataFrame`
     - Visualization support for categorical data
-- [Statsample-GLM#31](https://github.com/SciRuby/statsample-glm/pull/31) In this I implemented the following:
-    - Formula language support
+- [Statsample-GLM#31](https://github.com/SciRuby/statsample-glm/pull/31)
+    - Added Formula language support
     - Categorical data support in regression
 - [Statsample#51](https://github.com/SciRuby/statsample/pull/51) It implements formula language and categorical data support for regression in Statsample. This is unmerged, reason being that we are not sure whether we should remove the linear regression support from Stastsample or not. See [here](https://github.com/SciRuby/statsample/issues/53). We will either end up merging this pull request or moving the linear regression form here to Statsample-GLM.
 - [Daru#208](https://github.com/v0dro/daru/pull/208/) It does the following:
@@ -67,4 +79,4 @@ So, we will doing one of these two things:
 This improves the current structure of missing values API in Daru and introduces missing values support for categorical data. More information can found [here](http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru/).
 
 
-<img src="http://www.donnymiller.com/fineart/universe/THATSALLFOLKS.jpg" width="100" height="100">
+<img src="http://www.donnymiller.com/fineart/universe/THATSALLFOLKS.jpg" width="400" height="400">
