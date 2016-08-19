@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-19T12:54:54+00:00</updated>
+  <updated>2016-08-19T13:27:07+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -20,14 +20,16 @@
     <id>http://lokeshh.github.io/blog/2016/08/18/gsoc-summary</id>
     <content type="html"><![CDATA[<h2>Summary</h2>
 
-<p>During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language.</p>
+<p>During this GSoC I implemented:
+- Support for categorical data in Daru
+- Support for categorical data with formula language in Statsample-GLM</p>
 
 <h2>Pull Requests</h2>
 
 <p>The following are the main pull requests regarding my project:</p>
 
 <ul>
-<li><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a> In this I implemented the following:
+<li><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a>
 
 <ul>
 <li><code>CategoricalIndex</code> class for handling categorical index</li>
@@ -35,7 +37,7 @@
 <li>Visualization support for categorical data</li>
 </ul>
 </li>
-<li><a href="https://github.com/SciRuby/statsample-glm/pull/31">Statsample-GLM#31</a> In this I implemented the following:
+<li><a href="https://github.com/SciRuby/statsample-glm/pull/31">Statsample-GLM#31</a>
 
 <ul>
 <li>Formula language support</li>
