@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-19T15:06:58+00:00</updated>
+  <updated>2016-08-19T15:07:39+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -24,10 +24,14 @@
 
 <p><a href="https://summerofcode.withgoogle.com/projects/#6288543399804928">This</a> is my GSoC project page.</p>
 
-<p>To conclude I implemented the following this summer:
-- Support for categorical data in Daru
-- Support to visualize categorical data using Nyaplot, GnuplotRB and Gruff
-- Support for categorical data with formula language in Statsample-GLM</p>
+<p>To conclude I implemented the following this summer:</p>
+
+<ul>
+<li>Support for categorical data in Daru</li>
+<li>Support to visualize categorical data using Nyaplot, GnuplotRB and Gruff</li>
+<li>Support for categorical data with formula language in Statsample-GLM</li>
+</ul>
+
 
 <h2>Work Done</h2>
 
