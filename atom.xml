@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-19T12:21:06+00:00</updated>
+  <updated>2016-08-19T12:27:32+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -99,6 +99,10 @@
 
 
 <h3><a href="https://github.com/v0dro/daru/pull/208/">Daru#208</a></h3>
+
+<p>This improves the current structure of missing values API in Daru and introduces missing values support for categorical data. More information can found <a href="http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru/">here</a>.</p>
+
+<p><img src="http://www.donnymiller.com/fineart/universe/THATSALLFOLKS.jpg" alt="The End" /></p>
 ]]></content>
   </entry>
   
