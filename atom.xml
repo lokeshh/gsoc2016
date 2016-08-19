@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-19T12:19:19+00:00</updated>
+  <updated>2016-08-19T12:21:06+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -57,7 +57,7 @@
 
 <p>Now I will talk in detail about the work in these pull requests:</p>
 
-<h3><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a></h3>
+<h3>Daru#134</h3>
 
 <p>This was my major work during the weeks from 1 to 6th week.</p>
 
@@ -72,7 +72,7 @@
 
 <p>This PR has been merged.</p>
 
-<h3><a href="https://github.com/SciRuby/statsample-glm/pull/31">Statsample-GLM#31</a></h3>
+<h3>Statsample-GLM#31</h3>
 
 <p>The following posts discusses in detail my work:</p>
 
@@ -84,7 +84,7 @@
 
 <p>This PR is about to get merged. Just waiting for the new Daru to be released.</p>
 
-<h3><a href="https://github.com/SciRuby/statsample/pull/51">Statsample#51</a></h3>
+<h3>Statsample#51</h3>
 
 <p>This pull request is currently unmerged. It implements the same functionality as the above pull request does for Statsample-GLM.</p>
 
