@@ -66,4 +66,5 @@ So, we will doing one of these two things:
 
 This improves the current structure of missing values API in Daru and introduces missing values support for categorical data. More information can found [here](http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru/).
 
-![The End](http://www.donnymiller.com/fineart/universe/THATSALLFOLKS.jpg)
+
+<img src="http://www.donnymiller.com/fineart/universe/THATSALLFOLKS.jpg" width="100" height="100">
