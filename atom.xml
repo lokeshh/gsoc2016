@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-19T15:08:21+00:00</updated>
+  <updated>2016-08-19T19:00:27+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -20,9 +20,11 @@
     <id>http://lokeshh.github.io/blog/2016/08/18/gsoc-summary</id>
     <content type="html"><![CDATA[<h2>Summary</h2>
 
-<p>My project this summer was to add categorical data support in Daru and Statsample.</p>
+<p>It was a great summer. My project was to add categorical data support in Daru and Statsample.</p>
 
 <p><a href="https://summerofcode.withgoogle.com/projects/#6288543399804928">This</a> is my GSoC project page.</p>
+
+<p>I&rsquo;m happy to say that I implemented all of my goals and achived much more.</p>
 
 <p>To conclude I implemented the following this summer:</p>
 
@@ -33,7 +35,7 @@
 </ul>
 
 
-<h2>Work Done</h2>
+<h2>The code</h2>
 
 <p>The following are the main pull requests regarding my project:</p>
 
