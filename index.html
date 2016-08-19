@@ -9,7 +9,7 @@
   <meta name="author" content="Lokesh Sharma">
 
   
-  <meta name="description" content="The end of GSoC is near. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some other &hellip;">
+  <meta name="description" content="Summary During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language. PUll Requests The &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/18/gsoc-summary/">GSoC Summary</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-18T17:08:46+00:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>5:08 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Summary</h2>
+
+<p>During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language.</p>
+
+<h2>PUll Requests</h2>
+
+<p>The following are the main pull requests regarding my project:</p>
+
+<ul>
+<li><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a> In this I implemented the following:
+
+<ul>
+<li><code>CategoricalIndex</code> class for handling categorical index</li>
+<li><code>Category</code> module to add categorical data support in <code>Daru::Vector</code> and <code>Daru::DataFrame</code></li>
+<li>Visualization support for categorical data</li>
+</ul>
+</li>
+<li><a href="https://github.com/SciRuby/statsample-glm/pull/31">Statsample-GLM#31</a> In this I implemented the following:
+
+<ul>
+<li>Formula language support</li>
+<li>Categorical data support in regression</li>
+</ul>
+</li>
+<li><a href="https://github.com/SciRuby/statsample/pull/51">Statsample#51</a> It implements formula language and categorical data support for regression in Statsample. This is unmerged, reason being that we are not sure whether we should remove the linear regression support from Stastsample or not. See <a href="https://github.com/SciRuby/statsample/issues/53">here</a>. We will either end up merging this pull request or moving the linear regression form here to Statsample-GLM.</li>
+<li><a href="https://github.com/v0dro/daru/pull/208/">Daru#208</a> It does the following:
+
+<ul>
+<li>Implements missing value support for categorical data</li>
+<li>Improves the missing values API to make it simple and improve performance of Daru update operations</li>
+</ul>
+</li>
+</ul>
+
+
+<p><a href="https://github.com/v0dro/daru/pulls?utf8=%E2%9C%93&amp;q=is%3Apr%20author%3Alokeshh">Here</a> are other pull requests not necessary related to the project.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1123,6 +1187,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/08/18/gsoc-summary/">GSoC Summary</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2016/08/18/improve-missing-values-api-in-daru/">Improve Missing Values API in Daru [Week 11-12]</a>
       </li>
     
@@ -1136,10 +1204,6 @@
     
       <li class="post">
         <a href="/blog/2016/07/02/visualization/">Visualization [Week 5-6]</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/06/21/categorical-data/">Categorical Data [Week 3-4]</a>
       </li>
     
   </ul>

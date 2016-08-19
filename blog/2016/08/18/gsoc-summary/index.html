@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - GSoC 2016 Progress</title>
+  <title>GSoC Summary - GSoC 2016 Progress</title>
   <meta name="author" content="Lokesh Sharma">
 
   
-  <meta name="description" content="Blog Archive 2016 GSoC Summary
-Aug 18 2016 Improve Missing Values API in Daru [Week 11-12]
-Aug 18 2016 Shortcut Symbols [Week 9-10]
-Jul 31 2016 &hellip;">
+  <meta name="description" content="Summary During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language. PUll Requests The &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Jul 31 2016 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://lokeshh.github.io/blog/archives/">
+  <link rel="canonical" href="http://lokeshh.github.io/blog/2016/08/18/gsoc-summary/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="GSoC 2016 Progress" type="application/atom+xml">
@@ -67,92 +64,106 @@ Jul 31 2016 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">GSoC Summary</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-18T17:08:46+00:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>5:08 pm</span></time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><h2>Summary</h2>
 
-  
-  <h2>2016</h2>
+<p>During this GSoC I implemented support for categorical data in Daru and regression in Statsample-GLM with formula language.</p>
 
-<article>
-  
-<h1><a href="/blog/2016/08/18/gsoc-summary/">GSoC Summary</a></h1>
-<time datetime="2016-08-18T17:08:46+00:00" pubdate><span class='month'>Aug</span> <span class='day'>18</span> <span class='year'>2016</span></time>
+<h2>PUll Requests</h2>
 
+<p>The following are the main pull requests regarding my project:</p>
 
-</article>
+<ul>
+<li><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a> In this I implemented the following:
 
+<ul>
+<li><code>CategoricalIndex</code> class for handling categorical index</li>
+<li><code>Category</code> module to add categorical data support in <code>Daru::Vector</code> and <code>Daru::DataFrame</code></li>
+<li>Visualization support for categorical data</li>
+</ul>
+</li>
+<li><a href="https://github.com/SciRuby/statsample-glm/pull/31">Statsample-GLM#31</a> In this I implemented the following:
 
+<ul>
+<li>Formula language support</li>
+<li>Categorical data support in regression</li>
+</ul>
+</li>
+<li><a href="https://github.com/SciRuby/statsample/pull/51">Statsample#51</a> It implements formula language and categorical data support for regression in Statsample. This is unmerged, reason being that we are not sure whether we should remove the linear regression support from Stastsample or not. See <a href="https://github.com/SciRuby/statsample/issues/53">here</a>. We will either end up merging this pull request or moving the linear regression form here to Statsample-GLM.</li>
+<li><a href="https://github.com/v0dro/daru/pull/208/">Daru#208</a> It does the following:
 
-<article>
-  
-<h1><a href="/blog/2016/08/18/improve-missing-values-api-in-daru/">Improve Missing Values API in Daru [Week 11-12]</a></h1>
-<time datetime="2016-08-18T09:22:15+00:00" pubdate><span class='month'>Aug</span> <span class='day'>18</span> <span class='year'>2016</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2016/07/31/shortcut-symbols/">Shortcut Symbols [Week 9-10]</a></h1>
-<time datetime="2016-07-31T03:29:37+00:00" pubdate><span class='month'>Jul</span> <span class='day'>31</span> <span class='year'>2016</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2016/07/19/formula-language-week7-8/">Formula Language Implementation [Week 7-8]</a></h1>
-<time datetime="2016-07-19T18:26:41+00:00" pubdate><span class='month'>Jul</span> <span class='day'>19</span> <span class='year'>2016</span></time>
+<ul>
+<li>Implements missing value support for categorical data</li>
+<li>Improves the missing values API to make it simple and improve performance of Daru update operations</li>
+</ul>
+</li>
+</ul>
 
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2016/07/02/visualization/">Visualization [Week 5-6]</a></h1>
-<time datetime="2016-07-02T15:48:03+00:00" pubdate><span class='month'>Jul</span> <span class='day'>02</span> <span class='year'>2016</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2016/06/21/categorical-data/">Categorical Data [Week 3-4]</a></h1>
-<time datetime="2016-06-21T20:19:08+00:00" pubdate><span class='month'>Jun</span> <span class='day'>21</span> <span class='year'>2016</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2016/06/14/categorical-index/">Categorical Index [Week 1-2]</a></h1>
-<time datetime="2016-06-14T07:54:47+00:00" pubdate><span class='month'>Jun</span> <span class='day'>14</span> <span class='year'>2016</span></time>
-
-
-</article>
-
+<p><a href="https://github.com/v0dro/daru/pulls?utf8=%E2%9C%93&amp;q=is%3Apr%20author%3Alokeshh">Here</a> are other pull requests not necessary related to the project.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Lokesh Sharma</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-08-18T17:08:46+00:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>5:08 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lokeshh.github.io/blog/2016/08/18/gsoc-summary/" data-via="" data-counturl="http://lokeshh.github.io/blog/2016/08/18/gsoc-summary/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/08/18/improve-missing-values-api-in-daru/" title="Previous Post: Improve missing values API in Daru [Week 11-12]">&laquo; Improve missing values API in Daru [Week 11-12]</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -207,7 +218,10 @@ Jul 31 2016 &hellip;">
       var disqus_shortname = 'lokeshhgithubio';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lokeshh.github.io/blog/2016/08/18/gsoc-summary/';
+        var disqus_url = 'http://lokeshh.github.io/blog/2016/08/18/gsoc-summary/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
