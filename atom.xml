@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-19T19:22:04+00:00</updated>
+  <updated>2016-08-19T19:24:20+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -38,8 +38,8 @@ I&rsquo;m happy to say that I implemented all of my goals and achived much more.
 <p>The following are the main pull requests regarding my project:</p>
 
 <ul>
-<li><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a>
-It does the following:
+<li><p><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a>
+It does the following:</p>
 
 <ul>
 <li><code>CategoricalIndex</code> class for handling categorical index</li>
