@@ -4,7 +4,7 @@
   <title><![CDATA[GSoC 2016 Progress]]></title>
   <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
   <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-19T14:44:16+00:00</updated>
+  <updated>2016-08-19T15:06:42+00:00</updated>
   <id>http://lokeshh.github.io/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
@@ -14,19 +14,20 @@
 
   
   <entry>
-    <title type="html"><![CDATA[GSoC Summary]]></title>
+    <title type="html"><![CDATA[Work Done This GSoC]]></title>
     <link href="http://lokeshh.github.io/blog/2016/08/18/gsoc-summary/"/>
     <updated>2016-08-18T17:08:46+00:00</updated>
     <id>http://lokeshh.github.io/blog/2016/08/18/gsoc-summary</id>
-    <content type="html"><![CDATA[<h2>Overview</h2>
+    <content type="html"><![CDATA[<h2>Summary</h2>
 
-<p>During this GSoC I implemented:</p>
+<p>My project this summer was to add categorical data support in Daru and Statsample.</p>
 
-<ul>
-<li>Support for categorical data in Daru</li>
-<li>Support for categorical data with formula language in Statsample-GLM</li>
-</ul>
+<p><a href="https://summerofcode.withgoogle.com/projects/#6288543399804928">This</a> is my GSoC project page.</p>
 
+<p>To conclude I implemented the following this summer:
+- Support for categorical data in Daru
+- Support to visualize categorical data using Nyaplot, GnuplotRB and Gruff
+- Support for categorical data with formula language in Statsample-GLM</p>
 
 <h2>Work Done</h2>
 
@@ -34,6 +35,7 @@
 
 <ul>
 <li><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a>
+It does the following:
 
 <ul>
 <li><code>CategoricalIndex</code> class for handling categorical index</li>
@@ -44,7 +46,7 @@
 <li><a href="https://github.com/SciRuby/statsample-glm/pull/31">Statsample-GLM#31</a>
 
 <ul>
-<li>Formula language support</li>
+<li>Added Formula language support</li>
 <li>Categorical data support in regression</li>
 </ul>
 </li>
