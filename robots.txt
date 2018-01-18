@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://lokeshh.github.io/sitemap.xml 
+Sitemap: http://lokeshh.github.io/gsoc2016/sitemap.xml 

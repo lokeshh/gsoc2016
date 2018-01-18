@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[GSoC 2016 Progress]]></title>
-  <link href="http://lokeshh.github.io/atom.xml" rel="self"/>
-  <link href="http://lokeshh.github.io/"/>
-  <updated>2016-08-20T19:11:00+00:00</updated>
-  <id>http://lokeshh.github.io/</id>
+  <link href="http://lokeshh.github.io/gsoc2016/atom.xml" rel="self"/>
+  <link href="http://lokeshh.github.io/gsoc2016/"/>
+  <updated>2018-01-18T18:36:56+00:00</updated>
+  <id>http://lokeshh.github.io/gsoc2016/</id>
   <author>
     <name><![CDATA[Lokesh Sharma]]></name>
     
@@ -15,14 +15,16 @@
   
   <entry>
     <title type="html"><![CDATA[Work Done This GSoC]]></title>
-    <link href="http://lokeshh.github.io/blog/2016/08/18/gsoc-summary/"/>
+    <link href="http://lokeshh.github.io/gsoc2016/blog/2016/08/18/gsoc-summary/"/>
     <updated>2016-08-18T17:08:46+00:00</updated>
-    <id>http://lokeshh.github.io/blog/2016/08/18/gsoc-summary</id>
+    <id>http://lokeshh.github.io/gsoc2016/blog/2016/08/18/gsoc-summary</id>
     <content type="html"><![CDATA[<h2>Summary</h2>
 
-<p>It was a great summer. My project was to add categorical data support in Daru and Statsample.
-<a href="https://summerofcode.withgoogle.com/projects/#6288543399804928">This</a> is my GSoC project page.
-I&rsquo;m happy to say that I implemented all of my goals and achived much more.</p>
+<p>It was a great summer. My project was to add categorical data support in Daru and Statsample.</p>
+
+<p><a href="https://summerofcode.withgoogle.com/projects/#6288543399804928">This</a> is my GSoC project page.</p>
+
+<p>I&rsquo;m happy to say that I implemented all of my goals and achived much more.</p>
 
 <p>To conclude I implemented the following this summer:</p>
 
@@ -38,8 +40,9 @@ I&rsquo;m happy to say that I implemented all of my goals and achived much more.
 <p>The following are the main pull requests regarding my project:</p>
 
 <ul>
-<li><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a>
-It does the following:
+<li><p><a href="https://github.com/v0dro/daru/pull/134">Daru#134</a></p>
+
+<p>It does the following:</p>
 
 <ul>
 <li><code>CategoricalIndex</code> class for handling categorical index</li>
@@ -94,7 +97,7 @@ It does the following:
 </ul>
 
 
-<p>This PR is merged.</p>
+<p>This PR is about to get merged. Just waiting for the new Daru to be released.</p>
 
 <h3>Statsample#51</h3>
 
@@ -110,23 +113,9 @@ It does the following:
 </ul>
 
 
-<h3>Daru#208</h3>
+<h3><a href="https://github.com/v0dro/daru/pull/208/">Daru#208</a></h3>
 
 <p>This improves the current structure of missing values API in Daru and introduces missing values support for categorical data. More information can found <a href="http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru/">here</a>.</p>
-
-<h2>Installation</h2>
-
-<p>There are no special installation instructions to try the code. Installing the gems <code>daru</code> and <code>statsample-glm</code> is sufficient.</p>
-
-<p>To install Daru, do:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install daru</span></code></pre></td></tr></table></div></figure>
-
-
-<p>One need to install the latest master of Statsample-GLM to try my code since Statsample-GLM after my code merged hasn&rsquo;t been released yet.</p>
-
-<p>One could try a number of notebooks I&rsquo;ve mentioned in the links with each PR to try the respective code.</p>
 
 <p><img src="http://www.donnymiller.com/fineart/universe/THATSALLFOLKS.jpg" width="400" height="400"></p>
 ]]></content>
@@ -134,9 +123,9 @@ It does the following:
   
   <entry>
     <title type="html"><![CDATA[Improve Missing Values API in Daru [Week 11-12]]]></title>
-    <link href="http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru/"/>
+    <link href="http://lokeshh.github.io/gsoc2016/blog/2016/08/18/improve-missing-values-api-in-daru/"/>
     <updated>2016-08-18T09:22:15+00:00</updated>
-    <id>http://lokeshh.github.io/blog/2016/08/18/improve-missing-values-api-in-daru</id>
+    <id>http://lokeshh.github.io/gsoc2016/blog/2016/08/18/improve-missing-values-api-in-daru</id>
     <content type="html"><![CDATA[<p>The end of GSoC is near. I ended up finishing up a bit early on the formula language implementation and decided to devote the time on some other important issues.</p>
 
 <p>During these last two weeks I solved some issues in Daru and mainly worked on <a href="https://github.com/v0dro/daru/issues/137">this issue</a> regarding how missing values are handled in Daru.</p>
@@ -276,9 +265,9 @@ It does the following:
   
   <entry>
     <title type="html"><![CDATA[Shortcut Symbols [Week 9-10]]]></title>
-    <link href="http://lokeshh.github.io/blog/2016/07/31/shortcut-symbols/"/>
+    <link href="http://lokeshh.github.io/gsoc2016/blog/2016/07/31/shortcut-symbols/"/>
     <updated>2016-07-31T03:29:37+00:00</updated>
-    <id>http://lokeshh.github.io/blog/2016/07/31/shortcut-symbols</id>
+    <id>http://lokeshh.github.io/gsoc2016/blog/2016/07/31/shortcut-symbols</id>
     <content type="html"><![CDATA[<p>With the work done in Week 9 and 10, Statsample-GLM now supports shortcut symbols in Formula Language.</p>
 
 <p>With this addition, the regression has become more <a href="">R/Patsy like</a> and more convenient.</p>
@@ -440,9 +429,9 @@ It does the following:
   
   <entry>
     <title type="html"><![CDATA[Formula Language Implementation [Week 7-8]]]></title>
-    <link href="http://lokeshh.github.io/blog/2016/07/19/formula-language-week7-8/"/>
+    <link href="http://lokeshh.github.io/gsoc2016/blog/2016/07/19/formula-language-week7-8/"/>
     <updated>2016-07-19T18:26:41+00:00</updated>
-    <id>http://lokeshh.github.io/blog/2016/07/19/formula-language-week7-8</id>
+    <id>http://lokeshh.github.io/gsoc2016/blog/2016/07/19/formula-language-week7-8</id>
     <content type="html"><![CDATA[<p>After the end of 6 weeks we have category data support in Daru. Now in the coming weeks we will be adding support for category data in Statsample and Statsample-GLM.</p>
 
 <p>Currently, Statsample and Statsample-GLM do not support regression with category data.</p>
@@ -571,9 +560,9 @@ It does the following:
   
   <entry>
     <title type="html"><![CDATA[Visualization [Week 5-6]]]></title>
-    <link href="http://lokeshh.github.io/blog/2016/07/02/visualization/"/>
+    <link href="http://lokeshh.github.io/gsoc2016/blog/2016/07/02/visualization/"/>
     <updated>2016-07-02T15:48:03+00:00</updated>
-    <id>http://lokeshh.github.io/blog/2016/07/02/visualization</id>
+    <id>http://lokeshh.github.io/gsoc2016/blog/2016/07/02/visualization</id>
     <content type="html"><![CDATA[<p>During these two weeks I added visualization of categorical data in addition to support of a new plotting library <a href="https://github.com/topfunky/gruff">Gruff</a></p>
 
 <p>Daru supports visualization via three libraries:</p>
@@ -648,9 +637,9 @@ It does the following:
   
   <entry>
     <title type="html"><![CDATA[Categorical Data [Week 3-4]]]></title>
-    <link href="http://lokeshh.github.io/blog/2016/06/21/categorical-data/"/>
+    <link href="http://lokeshh.github.io/gsoc2016/blog/2016/06/21/categorical-data/"/>
     <updated>2016-06-21T20:19:08+00:00</updated>
-    <id>http://lokeshh.github.io/blog/2016/06/21/categorical-data</id>
+    <id>http://lokeshh.github.io/gsoc2016/blog/2016/06/21/categorical-data</id>
     <content type="html"><![CDATA[<p>Daru has now the capability to store and process categorical data.</p>
 
 <p>Daru has now three types of vector</p>
@@ -875,9 +864,9 @@ It does the following:
   
   <entry>
     <title type="html"><![CDATA[Categorical Index [Week 1-2]]]></title>
-    <link href="http://lokeshh.github.io/blog/2016/06/14/categorical-index/"/>
+    <link href="http://lokeshh.github.io/gsoc2016/blog/2016/06/14/categorical-index/"/>
     <updated>2016-06-14T07:54:47+00:00</updated>
-    <id>http://lokeshh.github.io/blog/2016/06/14/categorical-index</id>
+    <id>http://lokeshh.github.io/gsoc2016/blog/2016/06/14/categorical-index</id>
     <content type="html"><![CDATA[<p>Daru just got a new capability => Categorical Index.</p>
 
 <p>Now one can organize vector and dataframe using index that is categorical.</p>
