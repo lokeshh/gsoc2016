@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Visualization [Week 5-6] - GSoC 2016 Progress</title>
+  <meta name="author" content="Lokesh Sharma">
+
+  
+  <meta name="description" content="During these two weeks I added visualization of categorical data in addition to support of a new plotting library Gruff Daru supports visualization &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lokeshh.github.io/blog/2016/07/02/visualization/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="GSoC 2016 Progress" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">GSoC 2016 Progress</a></h1>
+  
+    <h2>Categorical Data Support [SciRuby]</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="lokeshh.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Visualization [Week 5-6]</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-07-02T15:48:03+00:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>3:48 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>During these two weeks I added visualization of categorical data in addition to support of a new plotting library <a href="https://github.com/topfunky/gruff">Gruff</a></p>
+
+<p>Daru supports visualization via three libraries:</p>
+
+<ul>
+<li><a href="https://github.com/SciRuby/nyaplot">Nyaplot</a></li>
+<li><a href="https://github.com/SciRuby/gnuplotrb/">GnuplotRB</a></li>
+<li><a href="https://github.com/topfunky/gruff">Gruff</a> (new)</li>
+</ul>
+
+
+<p>Lets discuss them one by one</p>
+
+<h2>Nyaplot</h2>
+
+<p>Nyaplot is the default plotting library for Daru. Nyaplot allows creation of a variety of plots with Daru easily. Its biggest strength lies in its ablity to draw interactive plots.</p>
+
+<p>Now Daru also supports categorical data visualization using Nyaplot. It mainly has two aspects:</p>
+
+<ul>
+<li>In case of a category vector it allows to view the frequencies of categories in a bar graph.</li>
+<li>And in case of dataframe containing a category vector, it allows to have scatter and line plots categorized by a category vector visualized by different shape, size and color.</li>
+</ul>
+
+
+<p><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Visualization.ipynb">Here</a> are some examples of visualization of category data using Nyaplot in Daru.</p>
+
+<h2>GnuplotRB</h2>
+
+<p>GnuplotRB is another great library which has inbuilt support for Daru datastructres: <code>Daru::Vector</code> and <code>Daru::DataFrame</code>. Though it doesn&rsquo;t directly operate on vectors and dataframes but uses its own API, it provides out of box support to plot <code>Daru::Vector</code> and <code>Data::DataFrame</code>.</p>
+
+<p>GnuplotRB strength lies in its offering of highly customized plots with yet a very simple to use API.</p>
+
+<p>No work was done regarding supporting categorical data visualization in GnuplotRB because it supports it out of the box owing to its easy to use API that lets plot multiple plots with a variety of features.</p>
+
+<p><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gnuplotrb.ipynb">Here&rsquo;s</a> a notebook demonstrating examples in the way category data can be visualizaed using GnuplotRB.</p>
+
+<h2>Gruff</h2>
+
+<p>Gruff is a new plotting library that has just been added to Daru. <a href="https://github.com/topfunky/gruff">Gruff</a> offers remarkably beautiful plots with very less effort. It also offers pie and sidebar plots which currently the other two libraries don&rsquo;t offer.</p>
+
+<p>These two notebooks show examples related to plotting of <code>Daru::Vector</code> and <code>Daru::DataFrame</code>:</p>
+
+<ul>
+<li><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gruff%20Vector.ipynb">Plotting of Vector</a></li>
+<li><a href="http://nbviewer.jupyter.org/github/SciRuby/sciruby-notebooks/blob/master/Data%20Analysis/Plotting/Gruff%20DataFrame.ipynb">Plotting of DataFrame</a></li>
+</ul>
+
+
+<h2>Choose from different libraries</h2>
+
+<p>To easily move between these all these libraries, Daru has following functions:</p>
+
+<ul>
+<li><code>Daru.plotting_library</code></li>
+<li><code>Daru::Vector#plotting_library</code></li>
+<li><code>Daru::DataFrame#plotting_library</code></li>
+</ul>
+
+
+<p><code>Daru.plotting_library</code> can be used to set the current plotting library. For example, using <code>Daru.plotting_library = :gruff</code> one can switch the plotting library to Gruff. This means all the plots created here after will be using Gruff for plotting.</p>
+
+<p>Inorder to change plotting library for only a specific vector, one can use <code>Daru::Vector#plotting_library</code>. For example, <code>dv.plotting_library = :gruff</code> will only change plotting library for vector <code>dv</code> and all other vectors created will created using library as set by <code>Daru.plotting_library</code>.</p>
+
+<p>The same goes for dataframes, one can use <code>df.plotting_library = :gruff</code> to set plotting library for data frame <code>df</code> to Gruff.</p>
+
+<h2>Summary</h2>
+
+<p>Along with the support of categorical data, Daru now also owns the ability to visualize catgory data. I realized and addressed a few shortcoming of some of these libraries and we at SciRuby are motivated to overcome those shortcoming and make visualization in Daru more complete.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lokesh Sharma</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-07-02T15:48:03+00:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>3:48 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lokeshh.github.io/blog/2016/07/02/visualization/" data-via="" data-counturl="http://lokeshh.github.io/blog/2016/07/02/visualization/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/06/21/categorical-data/" title="Previous Post: Categorical Data [Week 3-4]">&laquo; Categorical Data [Week 3-4]</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/07/19/formula-language-week7-8/" title="Next Post: Formula language implementation [Week 7-8]">Formula language implementation [Week 7-8] &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/08/18/gsoc-summary/">Work Done This GSoC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/18/improve-missing-values-api-in-daru/">Improve Missing Values API in Daru [Week 11-12]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/31/shortcut-symbols/">Shortcut Symbols [Week 9-10]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/19/formula-language-week7-8/">Formula Language Implementation [Week 7-8]</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/02/visualization/">Visualization [Week 5-6]</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Lokesh Sharma -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'lokeshhgithubio';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lokeshh.github.io/blog/2016/07/02/visualization/';
+        var disqus_url = 'http://lokeshh.github.io/blog/2016/07/02/visualization/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
